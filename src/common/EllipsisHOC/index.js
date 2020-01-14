@@ -10,12 +10,7 @@ import {
   number,
 } from 'prop-types';
 
-/**
- * Here we need to use loadable for now because React.lazy is
- * not supporting SSR yet.
- */
-import loadable from '@loadable/component';
-import { retry } from './utils';
+import Ellipsed from './EllipsisHOC';
 
 const validTooltipProps = [
   'flip',
@@ -58,7 +53,7 @@ const Comp /** @autodocs-component */ = Component => {
 
       if (ellipsis) {
         return (
-          <LazyEllipsisHOC
+          <Ellipsed
             ref={ref}
             fallback={
               <Component
