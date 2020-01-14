@@ -1,5 +1,4 @@
 import React from 'react';
-import { Loadable } from 'wix-ui-core/dist/src/components/loadable';
 
 import {
   bool,
@@ -10,6 +9,13 @@ import {
   string,
   number,
 } from 'prop-types';
+
+/**
+ * Here we need to use loadable for now because React.lazy is
+ * not supporting SSR yet.
+ */
+import loadable from '@loadable/component';
+import { retry } from './utils';
 
 const validTooltipProps = [
   'flip',
@@ -50,39 +56,25 @@ const Comp /** @autodocs-component */ = Component => {
     React.forwardRef(({ ellipsis, ...props }, ref) => {
       const rest = omit(props, validTooltipProps);
 
-      return (
-        <Loadable
-          loader={{
-            EllipsisHOC: () =>
-              // because variables are not parsed by webpack transpiler
-              process.env.NODE_ENV === 'test' ||
-              process.env.NODE_ENV === 'development'
-                ? require('./EllipsisHOC')
-                : import('./EllipsisHOC'),
-          }}
-          namedExports={{ EllipsisHOC: 'EllipsisHOC' }}
-          defaultComponent={<Component ref={ref} {...rest} />}
-          shouldLoadComponent={ellipsis}
-        >
-          {({ EllipsisHOC }) => {
-            return (
-              <EllipsisHOC
+      if (ellipsis) {
+        return (
+          <LazyEllipsisHOC
+            ref={ref}
+            fallback={
+              <Component
+                style={fallbackEllipsis}
+                data-fallback
                 ref={ref}
-                fallback={
-                  <Component
-                    style={fallbackEllipsis}
-                    data-fallback
-                    ref={ref}
-                    {...rest}
-                  />
-                }
-                Component={Component}
-                props={props}
+                {...rest}
               />
-            );
-          }}
-        </Loadable>
-      );
+            }
+            Component={Component}
+            props={props}
+          />
+        );
+      }
+
+      return <Component ref={ref} {...rest} />;
     }),
   );
 };
