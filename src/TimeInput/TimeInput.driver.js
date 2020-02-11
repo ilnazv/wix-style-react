@@ -13,6 +13,8 @@ const timeInputDriverFactory = ({ element }) => {
   const inputTicker = () => tickerTestkitFactory({ wrapper: element });
   const amPmIndicator = () =>
     element.querySelector(`[data-hook="${dataHooks.amPmIndicator}"]`);
+  const suffixWrapper = dataHook =>
+    element.querySelector(`[data-hook="${dataHook}"]`);
   return {
     exists: () => !!element,
     getValue: () => input().getValue(),
@@ -22,6 +24,7 @@ const timeInputDriverFactory = ({ element }) => {
     isAmPmIndicatorExist: () => !!amPmIndicator(),
     toggleAmPmIndicator: () => ReactTestUtils.Simulate.click(amPmIndicator()),
     getAmPmIndicatorText: () => amPmIndicator().innerHTML,
+    getCustomSuffixText: dataHook => suffixWrapper(dataHook).textContent,
     isRtl: () => !!element.querySelector(`.${styles.rtl}`),
     setValue: value => input().enterText(value),
     blur: () => input().blur(),

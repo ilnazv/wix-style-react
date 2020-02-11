@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: row;
   line-height: 15px;
-  width: 120px; // Inferred from Zeplin spec.
 
   &.rtl {
     flex-direction: row-reverse;
@@ -33,6 +32,10 @@
   }
 }
 
+.ampm-wrapper {
+  width: 30.3px; // Inferred from Zeplin spec.
+}
+
 .ampm {
   margin: 0 3px;
   text-transform: uppercase;
@@ -47,4 +50,14 @@
 
 .input {
   cursor: pointer;
+  input {
+    max-width: 53.7px; // Inferred from Zeplin spec.
+  }
+}
+
+.suffix-wrapper {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

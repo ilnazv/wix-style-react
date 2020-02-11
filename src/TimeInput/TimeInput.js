@@ -39,6 +39,9 @@ export default class TimePicker extends Component {
 
     /** Number of minutes to be changed on arrow click */
     minutesStep: PropTypes.number,
+
+    /** Custom suffix, located before ticker */
+    customSuffix: PropTypes.node,
   };
 
   static defaultProps = {
@@ -214,31 +217,35 @@ export default class TimePicker extends Component {
   };
 
   renderTimeTextbox() {
-    const text =
-      this.props.disabled && this.props.dashesWhenDisabled
-        ? '-- : --'
-        : this.state.text;
+    const { customSuffix, disabled, dashesWhenDisabled } = this.props;
+
+    const text = disabled && dashesWhenDisabled ? '-- : --' : this.state.text;
 
     const suffix = (
       <Input.Group>
-        {this.state.ampmMode && (
-          <Text
-            weight="normal"
-            skin={this.props.disabled ? 'disabled' : 'standard'}
-            className={styles.ampm}
-            onClick={this.handleAmPmClick}
-            dataHook={dataHooks.amPmIndicator}
-          >
-            {this.state.am ? 'am' : 'pm'}
-          </Text>
-        )}
-        <Input.Ticker
-          upDisabled={this.props.disabled}
-          downDisabled={this.props.disabled}
-          onUp={this.handlePlus}
-          onDown={this.handleMinus}
-          dataHook={dataHooks.ticker}
-        />
+        <div className={styles.suffixWrapper}>
+          <div className={styles.ampmWrapper}>
+            {this.state.ampmMode && (
+              <Text
+                weight="normal"
+                skin={disabled ? 'disabled' : 'standard'}
+                className={styles.ampm}
+                onClick={this.handleAmPmClick}
+                dataHook={dataHooks.amPmIndicator}
+              >
+                {this.state.am ? 'am' : 'pm'}
+              </Text>
+            )}
+          </div>
+          {customSuffix}
+          <Input.Ticker
+            upDisabled={disabled}
+            downDisabled={disabled}
+            onUp={this.handlePlus}
+            onDown={this.handleMinus}
+            dataHook={dataHooks.ticker}
+          />
+        </div>
       </Input.Group>
     );
 
@@ -252,7 +259,7 @@ export default class TimePicker extends Component {
           onBlur={this.handleInputBlur}
           suffix={suffix}
           dataHook={dataHooks.input}
-          disabled={this.props.disabled}
+          disabled={disabled}
         />
       </div>
     );

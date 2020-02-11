@@ -8,6 +8,7 @@ export const timeInputUniDriverFactory = base => {
     base.$(`[data-hook="${dataHooks.amPmIndicator}"]`);
   const input = testkit(base);
   const inputTicker = tickerDriverFactory(base);
+  const suffixWrapper = dataHook => base.$(`[data-hook="${dataHook}"]`);
 
   return {
     ...baseUniDriverFactory(base),
@@ -18,6 +19,7 @@ export const timeInputUniDriverFactory = base => {
     isAmPmIndicatorExist: async () => amPmIndicator().exists(),
     toggleAmPmIndicator: async () => amPmIndicator().click(),
     getAmPmIndicatorText: async () => amPmIndicator().text(),
+    getCustomSuffixText: async dataHook => suffixWrapper(dataHook).text(),
     isRtl: async () => base.$(`.rtl`).exists(),
     setValue: async value => input.enterText(value),
     blur: async () => input.blur(),
