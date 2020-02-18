@@ -1,11 +1,26 @@
+import ReactTestUtils from 'react-dom/test-utils';
 import { INTERNAL_DRIVER_SYMBOL } from '../../test/utils/private-drivers';
 import { PopoverMenuTestkit } from '../../testkit/beta';
-import buttonDriverFactory from '../Deprecated/Button/Button.driver.js';
 import popoverMenuDriverFactory from '../PopoverMenu/PopoverMenu.driver';
 import tooltipDriverFactory from '../Tooltip/Tooltip.driver';
 import { dataHooks } from './constants';
 
-const tableActionCellDriverFactory = ({ element }) => {
+const buttonDriverFactory = ({ element }) => {
+  return {
+    exists: () => !!element,
+    click: () => ReactTestUtils.Simulate.click(element),
+    focus: () => ReactTestUtils.Simulate.focus(element),
+    blur: () => ReactTestUtils.Simulate.blur(element),
+    mouseEnter: () => ReactTestUtils.Simulate.mouseEnter(element),
+    mouseLeave: () => ReactTestUtils.Simulate.mouseLeave(element),
+    getButtonTextContent: () => element.textContent,
+    isButtonDisabled: () => element.getAttribute('disabled') === '',
+    isPrefixIconExists: () => element.innerHTML.indexOf('prefix') !== -1,
+    isSuffixIconExists: () => element.innerHTML.indexOf('suffix') !== -1,
+  };
+};
+
+const tableActionCellDriverFactory = ({ element, wrapper, component }) => {
   const getPrimaryActionPlaceholder = () =>
     element.querySelector('[data-hook="table-action-cell-placeholder"]');
   const getVisibleActionsWrapper = () =>
