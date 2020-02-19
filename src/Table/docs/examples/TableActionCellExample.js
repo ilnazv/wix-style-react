@@ -24,7 +24,7 @@ class TableActionCellExample extends React.Component {
                 upgrade
                 primaryAction={{
                   text: 'Edit',
-                  theme: 'fullblue',
+                  skin: 'standard',
                   onClick: () => window.alert(`Editing ${rowData.firstName}`),
                 }}
                 secondaryActions={[
