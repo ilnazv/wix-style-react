@@ -99,7 +99,6 @@ require('../src/Page/docs/index.story');
 require('../src/PageHeader/docs/index.story');
 require('../src/Pagination/docs/index.story');
 require('../src/Popover/docs/index.story');
-require('../src/PopoverMenu/docs/index.story');
 require('../src/PreviewWidget/docs/index.story');
 require('../src/Proportion/docs/index.story');
 require('../src/RadioGroup/docs/index.story');
