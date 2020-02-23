@@ -440,6 +440,9 @@
   "AnnouncementModalLayout": {
     "path": "src/AnnouncementModalLayout"
   },
+  "PopoverMenu": {
+    "path": "src/PopoverMenu"
+  },
   "Pagination": {
     "path": "src/Pagination"
   }
