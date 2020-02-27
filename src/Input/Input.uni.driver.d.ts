@@ -43,10 +43,6 @@ export interface InputUniDriver extends BaseUniDriver {
   getReadOnly: () => Promise<any>;
   getDisabled: () => Promise<any>;
   getTextOverflow: () => Promise<string>;
-  hasExclamation: () => Promise<boolean>;
-  hasError: () => Promise<boolean>;
-  hasWarning: () => Promise<boolean>;
-  hasLoader: () => Promise<boolean>;
   focus: () => Promise<void>;
   blur: () => Promise<void>;
   keyUp: () => Promise<void>;
@@ -65,7 +61,6 @@ export interface InputUniDriver extends BaseUniDriver {
   clickMagnifyingGlass: () => Promise<void>;
   clickMenuArrow: () => Promise<void>;
   hasMenuArrow: () => Promise<boolean>;
-  isNarrowError: () => Promise<boolean>;
   isRTL: () => Promise<boolean>;
   getCursorLocation: () => Promise<any>;
   clearText: () => Promise<void>;

@@ -1,7 +1,8 @@
 import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 import { ReactBase } from '../../test/utils/unidriver';
 import DATA_ATTR from './DataAttr';
-import { tooltipDriverFactory } from '../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { statusIndicatorDriverFactory } from '../StatusIndicator/StatusIndicator.uni.driver';
+import { dataHooks } from './constants';
 
 export const testkit = (base, body) => {
   // single $ throws an exception for more than 1 match, so we use the first matching result with $$
@@ -14,6 +15,11 @@ export const testkit = (base, body) => {
 
   const clearButtonNode = base.$(`[data-hook=input-clear-button]`);
   const menuArrowNode = base.$(`.menuArrow`);
+
+  const statusIndicatorDriver = statusIndicatorDriverFactory(
+    base.$(`[data-hook="${dataHooks.status}"]`),
+    body,
+  );
 
   const driver = {
     ...baseUniDriverFactory(base),
@@ -70,14 +76,6 @@ export const testkit = (base, body) => {
     getReadOnly: async () => await input._prop('readOnly'),
     getDisabled: async () => await input._prop('disabled'),
     getTextOverflow: async () => (await input._prop('style'))['text-overflow'],
-    hasExclamation: async () => await base.$(`.exclamation`).exists(),
-    hasError: async () => await base.hasClass('hasError'),
-    hasWarning: async () => await base.hasClass('hasWarning'),
-    hasLoader: async () => {
-      // There actually should be only 1  element with `.loaderContainer`, this is a component bug that there are actually 2.
-      return (await base.$$(`.loaderContainer`).count()) > 0;
-    },
-
     focus: async () => await reactBaseInput.focus(),
     blur: async () => await reactBaseInput.blur(),
     keyUp: async () => await reactBaseInput.keyUp(),
@@ -106,28 +104,21 @@ export const testkit = (base, body) => {
     isFocus: async () => await reactBaseInput.isFocus(),
     clickMenuArrow: async () => await menuArrowNode.click(),
     hasMenuArrow: async () => await menuArrowNode.exists(),
-    isNarrowError: async () => await base.$(`.narrow`).exists(),
     isRTL: async () => await base.hasClass('rtl'),
     getCursorLocation: async () => await input._prop('selectionStart'),
     clearText: () => driver.enterText(''),
     clickOutside: () => ReactBase.clickDocument(),
 
     // Status
-    /** Return true if the given status is displayed */
+    /** Return true if there's a status */
     hasStatus: async status =>
-      (status === 'error' && (await base.hasClass('hasError'))) ||
-      (status === 'warning' && (await base.hasClass('hasWarning'))) ||
-      (status === 'loading' && (await base.$$(`.loaderContainer`).count()) > 0),
+      status === (await statusIndicatorDriver.getStatus()),
     /** If there's a status message, returns its text value */
     getStatusMessage: async () => {
       let tooltipText = null;
-      const tooltipDriver = tooltipDriverFactory(
-        base.$('[data-hook="input-tooltip"]'),
-        body,
-      );
-      await tooltipDriver.mouseEnter();
-      if (await tooltipDriver.tooltipExists()) {
-        tooltipText = await tooltipDriver.getTooltipText();
+
+      if (await statusIndicatorDriver.hasMessage()) {
+        tooltipText = await statusIndicatorDriver.getMessage();
       }
 
       return tooltipText;

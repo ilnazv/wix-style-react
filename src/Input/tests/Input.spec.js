@@ -210,19 +210,6 @@ describe('Input', () => {
         expect(await driver.hasStatus(test.status)).toBe(true);
         expect(await driver.getStatusMessage()).toBe(test.statusMessage);
       });
-
-      it('should display a loader icon if status is loading', async () => {
-        // change
-        const { driver } = render(<Input status={'loading'} />);
-
-        expect(await driver.hasLoader()).toBeTruthy();
-      });
-
-      it('should display a warning icon if status is warning', async () => {
-        const { driver } = render(<Input status={'warning'} />);
-
-        expect(await driver.hasWarning()).toBe(true);
-      });
     });
 
     describe('hideStatusSuffix attribute', () => {

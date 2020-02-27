@@ -1,6 +1,7 @@
 import ReactTestUtils from 'react-dom/test-utils';
-import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
 import styles from './Input.scss';
+import { tooltipDriverFactory } from 'wix-ui-core/dist/src/components/tooltip/Tooltip.driver';
+import { dataHooks } from './constants';
 
 const inputDriverFactory = ({ element, eventTrigger }) => {
   const input = element && element.querySelector('input');
@@ -79,12 +80,7 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
       element.querySelectorAll(
         `.${styles.suffixes} .${styles.suffix}:last-child > .${styles.menuArrow}`,
       ).length === 1,
-    hasExclamation: () => !!element.querySelector(`.${styles.exclamation}`),
-    isNarrowError: () => !!element.querySelector(`.${styles.narrow}`),
-    hasError: () => element.classList.contains(styles.hasError),
-    hasWarning: () => element.classList.contains(styles.hasWarning),
     getTooltipElement: () => element,
-    hasLoader: () => !!element.querySelector(`.loaderContainer`),
     getTooltipDataHook: () => 'input-tooltip',
     getDataHook: () => element.getAttribute('data-hook'),
     getCustomAffix: () => customAffixNode.textContent,
@@ -115,14 +111,17 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
     // Status
     /** Return true if the given status is displayed */
     hasStatus: status =>
-      (status === 'error' && element.classList.contains(styles.hasError)) ||
-      (status === 'warning' && element.classList.contains(styles.hasWarning)) ||
-      (status === 'loading' && !!element.querySelector(`.loaderContainer`)),
+      status ===
+      element
+        .querySelector(`[data-hook='${dataHooks.status}']`)
+        .getAttribute('data-status'),
     /** If there's a status message, returns its text value */
     getStatusMessage: () => {
       let tooltipText = null;
       const tooltipDriver = tooltipDriverFactory({
-        element: element.querySelector(`[data-hook='input-tooltip']`),
+        element: element.querySelector(
+          `[data-hook='status-indicator-tooltip']`,
+        ),
         eventTrigger,
       });
 

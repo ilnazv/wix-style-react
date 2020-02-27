@@ -44,13 +44,7 @@ export interface InputDriver extends BaseDriver {
   prefixComponentExists: (style: string) => boolean;
   suffixComponentExists: (style: string) => boolean;
   isMenuArrowLast: () => boolean;
-  hasExclamation: () => boolean;
-  isNarrowError: () => boolean;
-  hasHelp: () => boolean;
-  hasError: () => boolean;
-  hasWarning: () => boolean;
   getTooltipElement: () => HTMLElement;
-  hasLoader: () => boolean;
   getTooltipDataHook: () => 'input-tooltip';
   getDataHook: () => string | null;
   getUnit: () => string;
