@@ -43,7 +43,6 @@ class Icon extends PureComponent {
         <Tooltip
           {...tooltipProps}
           dataHook="toggle-button-tooltip"
-          upgrade
           size="small"
           content={labelValue}
           disabled={tooltipDisabled || tooltipProps.disabled}
