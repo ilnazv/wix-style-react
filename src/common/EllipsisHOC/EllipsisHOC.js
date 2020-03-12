@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { withEllipsedTooltipNext } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip';
+import { withEllipsedTooltipNext } from 'wix-ui-core/dist/src/hocs/EllipsedTooltip/withEllipsedTooltipNext';
 import { ZIndex } from '../../ZIndex';
 import tooltip from './EllipsisHOC.st.css';
 
