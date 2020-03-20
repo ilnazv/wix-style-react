@@ -16,10 +16,11 @@ export const testkit = (base, body) => {
   const clearButtonNode = base.$(`[data-hook=input-clear-button]`);
   const menuArrowNode = base.$(`.menuArrow`);
 
-  const statusIndicatorDriver = statusIndicatorDriverFactory(
-    base.$(`[data-hook="${dataHooks.status}"]`),
-    body,
-  );
+  const statusIndicatorDriver = () =>
+    statusIndicatorDriverFactory(
+      base.$(`[data-hook="${dataHooks.status}"]`),
+      body,
+    );
 
   const driver = {
     ...baseUniDriverFactory(base),
@@ -111,9 +112,10 @@ export const testkit = (base, body) => {
     // Status
     /** Return true if there's a status */
     hasStatus: async status =>
-      status === (await statusIndicatorDriver.getStatus()),
+      status === (await statusIndicatorDriver().getStatus()),
     /** If there's a status message, returns its text value */
     getStatusMessage: async () => {
+      const statusIndicatorDriver = statusIndicatorDriver();
       let tooltipText = null;
 
       if (await statusIndicatorDriver.hasMessage()) {
