@@ -1,9 +1,14 @@
 import * as React from 'react';
 
-import { DataTableColumn, DataTableProps, RowDataDefaultType } from '../DataTable';
+import {
+  DataTableColumn,
+  DataTableProps,
+  RowDataDefaultType,
+} from './DataTable';
 import EmptyState from '../EmptyState';
 
-export interface TableProps<RowData = RowDataDefaultType> extends UsedDataTableProps<RowData> {
+export interface TableProps<RowData = RowDataDefaultType>
+  extends UsedDataTableProps<RowData> {
   dataHook?: string;
   onSelectionChanged?: OnSelectionChangedFn;
   showSelection?: boolean;
@@ -17,7 +22,9 @@ export interface TableProps<RowData = RowDataDefaultType> extends UsedDataTableP
   columns: TableColumn[];
 }
 
-export default class Table<RowData = RowDataDefaultType> extends React.Component<TableProps<RowData>> {
+export default class Table<
+  RowData = RowDataDefaultType
+> extends React.Component<TableProps<RowData>> {
   static ToolbarContainer: typeof ToolbarContainer;
   static Titlebar: typeof Titlebar;
   static Content: typeof Content;

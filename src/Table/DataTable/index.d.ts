@@ -2,20 +2,21 @@ import * as React from 'react';
 import { OmitPolyfill } from '../../common';
 import { TooltipProps } from '../../Tooltip';
 
-export interface DataTableProps {
+export type RowDataDefaultType = any;
+export interface DataTableProps<RowData = RowDataDefaultType> {
   dataHook?: string;
   id?: string;
-  data?: object[];
+  data?: RowData[];
   columns: DataTableColumn[];
   showHeaderWhenEmpty?: boolean;
   rowDataHook?: string | DataTableRowDataHookFn;
   rowClass?: string;
-  dynamicRowClass?: (rowData: any, rowNum: number) => string;
-  isRowSelected?: (rowData: any, rowNum: number) => boolean;
-  isRowHighlight?: (rowData: any, rowNum: number) => boolean;
-  onRowClick?: (rowData: any, rowNum: number) => void;
-  onMouseEnterRow?: (rowData: any, rowNum: number) => void;
-  onMouseLeaveRow?: (rowData: any, rowNum: number) => void;
+  dynamicRowClass?: (rowData: RowData, rowNum: number) => string;
+  isRowSelected?: (rowData: RowData, rowNum: number) => boolean;
+  isRowHighlight?: (rowData: RowData, rowNum: number) => boolean;
+  onRowClick?: (rowData: RowData, rowNum: number) => void;
+  onMouseEnterRow?: (rowData: RowData, rowNum: number) => void;
+  onMouseLeaveRow?: (rowData: RowData, rowNum: number) => void;
   onSortClick?: (column: DataTableColumn, colNum: number) => void;
   infiniteScroll?: boolean;
   itemsPerPage?: number;
@@ -25,9 +26,9 @@ export interface DataTableProps {
   hasMore?: boolean;
   loader?: React.ReactNode;
   useWindow?: boolean;
-  scrollElement?: HTMLElement;
+  scrollElement?: HTMLElement | React.RefObject<any>;
   rowVerticalPadding?: DataTableRowVerticalPadding;
-  rowDetails?: (rowData: any, rowNum: number) => React.ReactNode;
+  rowDetails?: (rowData: RowData, rowNum: number) => React.ReactNode;
   allowMultiDetailsExpansion?: boolean;
   hideHeader?: boolean;
   showLastRowDivider?: boolean;
@@ -38,23 +39,25 @@ export interface DataTableProps {
   selectedRowsIds?: (string | number)[];
 }
 
-export default class DataTable extends React.Component<DataTableProps> {}
+export default class DataTable<
+  RowData = RowDataDefaultType
+> extends React.Component<DataTableProps<RowData>> {}
 
 export type DataTableColumnAlign = 'start' | 'center' | 'end';
-export type DataTableRowDataHookFn = (rowData: any, rowNum: number) => string;
+export type DataTableRowDataHookFn<RowData = RowDataDefaultType> = (
+  rowData: RowData,
+  rowNum: number,
+) => string;
 export type DataTableSkin = 'standard' | 'neutral';
 export type DataTableRowVerticalPadding = 'medium' | 'large';
-export type DataTableColumn = {
+export type DataTableColumn<RowData = RowDataDefaultType> = {
   title: React.ReactNode;
-  render: (row: any, rowNum: number) => React.ReactNode;
+  render: (row: RowData, rowNum: number) => React.ReactNode;
   width?: string;
   important?: boolean;
   sortable?: boolean;
   sortDescending?: boolean;
   style?: React.CSSProperties;
-  infoTooltipProps?: OmitPolyfill<
-    Partial<TooltipProps>,
-    'dataHook' | 'moveBy' | 'children'
-  >;
+  infoTooltipProps?: OmitPolyfill<Partial<TooltipProps>, 'dataHook' | 'moveBy'>;
   align?: DataTableColumnAlign;
 };
