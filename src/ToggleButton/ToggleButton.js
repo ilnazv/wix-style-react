@@ -13,7 +13,6 @@ import { ButtonNext } from 'wix-ui-core/dist/src/components/button-next';
 import { withFocusable } from 'wix-ui-core/dist/src/hocs/Focusable/FocusableHOC';
 import styles from './ToggleButton.st.css';
 import Tooltip from '../Tooltip';
-import deprecationLog from '../utils/deprecationLog';
 import Text from '../Text';
 import { iconChildSize } from './constants';
 import { TooltipCommonProps } from '../common/PropTypes/TooltipCommon';
@@ -94,12 +93,10 @@ class ToggleButton extends PureComponent {
     disabled: bool,
     /** String based data hook */
     dataHook: string,
-    /** Tooltip content that will appear on hover
-     * @deprecated use labelValue instead */
-    tooltipContent: node,
     /** Tooltip props for label. Applied only when `labelPlacement` is `tooltip`. */
     tooltipProps: shape(TooltipCommonProps),
   };
+
   static defaultProps = {
     skin: 'standard',
     size: 'medium',
@@ -111,16 +108,6 @@ class ToggleButton extends PureComponent {
       placement: 'top',
     },
   };
-
-  constructor(props) {
-    super(props);
-
-    if (props.hasOwnProperty('tooltipContent')) {
-      deprecationLog(
-        '<ToggleButton/> - "tooltipContent" prop is deprecated. Use "labelValue" instead.',
-      );
-    }
-  }
 
   renderLabel = () => {
     const {
@@ -149,7 +136,6 @@ class ToggleButton extends PureComponent {
       size,
       skin,
       tooltipProps,
-      tooltipContent,
       labelValue,
       selected,
       dataHook,
@@ -173,7 +159,7 @@ class ToggleButton extends PureComponent {
         <ToggleButtonIcon
           size={size}
           tooltipProps={tooltipProps}
-          labelValue={labelValue || tooltipContent || ''}
+          labelValue={labelValue}
           tooltipDisabled={labelPlacement !== 'tooltip'}
         >
           {children}
