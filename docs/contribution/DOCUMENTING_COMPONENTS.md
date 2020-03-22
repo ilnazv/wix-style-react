@@ -54,7 +54,7 @@ export default {
 
 Every new comoponent requires a component story in the Components API section.
 If the UX symbol is a composite of more than 1 component, it also requires a Design Guidelines story.
-Example can be found [here] (https://github.com/wix/wix-style-react/blob/master/src/CustomModalLayout/docs/design.story.js)
+Example can be found [here] (https://github.com/wix/wix-style-react/blob/master/stories/MultiSelect/index.story.js)
 
 ## Cheatsheet
 
