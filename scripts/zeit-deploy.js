@@ -11,7 +11,7 @@ const pr =
   (process.env.VCS_BRANCH_NAME &&
     process.env.VCS_BRANCH_NAME.replace(/\D+/g, '')) ||
   false;
-const domain = pr ? `wix-style-react-pr-${pr}` : 'wix-style-react';
+const domain = 'wix-style-react-v7';
 console.log(`params: token=${token} pr=${pr} domain=${domain}`);
 
 const deploymentCmd = `npx now alias --token=${token} $(npx now ./storybook-static --confirm --no-clipboard --token=${token} --public) ${domain}`;
