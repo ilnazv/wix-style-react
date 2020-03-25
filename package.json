@@ -240,7 +240,7 @@
     "wix-animations": "^1.0.282",
     "wix-eventually": "^2.3.0",
     "wix-ui-backoffice": "^1.0.591",
-    "wix-ui-core": "branch-1792-head",
+    "wix-ui-core": "branch-1815-head",
     "wix-ui-icons-common": "^2.0.119",
     "wix-ui-test-utils": "^1.0.172"
   },
