@@ -30,6 +30,10 @@ visualize('TimeInput', () => {
         <br />
         <TimeInput defaultValue={value2} rtl disableAmPm />
         <br />
+        <TimeInput defaultValue={value1} width="100%" />
+        <br />
+        <TimeInput defaultValue={value1} disableAmPm width="100%" />
+        <br />
         <TimeInput
           defaultValue={value1}
           disableAmPm
@@ -37,6 +41,12 @@ visualize('TimeInput', () => {
         />
         <br />
         <TimeInput defaultValue={value1} customSuffix={customSuffix} />
+        <br />
+        <TimeInput
+          defaultValue={value1}
+          customSuffix={customSuffix}
+          width="100%"
+        />
         <br />
         <TimeInput defaultValue={value1} customSuffix={customSuffix} disabled />
         <br />
