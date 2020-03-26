@@ -67,15 +67,19 @@ Make sure that react and react-dom versions are not higher then:
    "react-dom":"16.8.3"
    .
    .
-   
+
   ```
 
-**wix-style-react v6.x migration note**:
+**Migrating wix-style-react from older versions**:
 
-If you're using wix-style-react 6.x and want to shift to 7.x version then read our [migration guide](https://github.com/wix/wix-style-react/blob/master/docs/migration/v6-v7.md).
+- From 7.x to 8.x read [V8 migration guide](TODO-WSR8-fix-links)
+- From 6.x to 7.x read [V7 migration guide](TODO-WSR8-fix-links)
 
-Previous version documentation: https://wix-wix-style-react-v6.surge.sh/
-  
+**Older version Storybook:**
+
+- [V7 Storybook](https://wix-style-react-v7.now.sh)
+- [V6 Storybook](https://wix-wix-style-react-v6.surge.sh/)
+
 ## 🚀 Usage
 
 ```jsx
@@ -90,7 +94,7 @@ const App = () => (
 
 ## 💫 Testkits
 
-All our components are provided with testkits that help our users test them.  
+All our components are provided with testkits that help our users test them.
 
 A component testkit provides an interface to the component, enabling automated tests to access component functions without needing to know precise details of the technology being used.
 
@@ -107,7 +111,10 @@ const inputDriver = inputTestkitFactory({
 });
 
 // 3. interact
-await inputDriver.enterText('hello world');
+it('test', async () => {
+    await inputDriver.enterText('hello world');
+    expect(await inputDriver.getText()).toBe('hello world');
+});
 ```
 All methods are documented in our storybook components stories and some can be viewed through typescript interface.
 
@@ -115,7 +122,7 @@ Our testkits currently support four major testing frameworks: `react-jsdom`, `pr
 
 ## ⌨️ Typescript
 
-The library is javascript based but types are supported with `d.ts` files. 
+The library is javascript based but types are supported with `d.ts` files.
 You should get the types automatically when installing `wix-style-react`.
 For any issues, check out our types [FAQ](https://github.com/wix/wix-style-react/blob/master/docs/FAQ/TYPES.MD)
 
