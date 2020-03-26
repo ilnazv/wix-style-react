@@ -4,21 +4,41 @@
 * This guide will help you migrate from `wix-style-react` V7 to the new V8. It might require some changes from your side, but in order to make it as smooth as possible we have created this detailed migration guide.
 * For a high level overview of the changes, please check the [Release Notes](./RELEASE_NOTES_V8.md)
 
+_NOTE <span style="color:#c30000">links don't work in Storybook - only in GitHub. sorry for the inconvenience.</span>_
+
+##index
+- [Suggested steps for the migration](#suggested-steps-for-the-migration)
+- [Changes described by domain](#changes-described-by-domain)
+- [All changes described per component list](#all-changes-described-per-component-list)
+- [More guides](#-more-guides)
+---
+
 ## Suggested steps for the migration
 
 ### Before you upgrade
 
 The best tip **before** upgrading to v8, is fixing all the **Deprecation Messages** that appear in v7 which you see in you console. It will allow a much easier migration with critical changes.
 
-Some examples:
-- Input's magnifyingGlass prop is deprecated and will be removed in the next major release, please use suffix property with '<Input suffix={<Input.Affix><Search /></Input.Affix>}/>'.
-- Using icons from "wix-style-react/new-icons" has been deprecated. Please install and use icons from "wix-ui-icons-common" package directly.
+An example for V7 deprecation log:<br/>
+Using `error` prop is deprecated in `<Input/>` component:
+```jsx
+<Input error />
+```
+Therefore the following warning will appear:
+```bash
+Wix-Style-React: [WARNING] <Input/> - error and errorMessage props are deprecated. Please use status="error" and statusMessage instead.
+```
+Changing to status="error" resolves the warning:
+```jsx
+<Input status="error" />
+```
+And this code is now ready for V8!
 
 ### Order of migration
 This is the suggested flow as we see it
 
 1. Change the import statements to named-imports and to the icons library.
-1. Remove old and deprecated components like `AutoCompleteComposite`
+1. Remove old and deprecated components like `AutoCompleteComposite` see list [here](#remove-old-and-deprecated-components).
 1. Change components with `upgrade` prop like `Tooltip` and `Page`.
 1. Change from `PopoverMenu` to the `PopoverMenu` which is stated as `beta` - it becomes the official `PopoverMenu` in wsr8.
 1. Change of all input/selection family components to "status message" standard by using `status` and `statusMessage` instead of `error` and `errorMessage`.
@@ -78,44 +98,47 @@ npx wix-ui-codemod wix-style-react/icons-common <path-to-your-project>
 5. Remove `<HeaderLayout>`, `<HeaderLayout1>`, `<FooterLayout>`, `<FooterLayout1>`, `<MessageBoxLayout2>`, `<MessageBoxLayout1>` - these components no longer available. Use `<MessageBoxMarketerialLayout>` or `<MessageBoxFunctionalLayout>` instead.
 
 ### API Changes for big components
-- `<Page/>` - remove `upgrade`, to better performance, new API features and slickness.
-- `<PopoverMenu/>` - Change implementation to the previously `beta PopoverMenu`
-- `<Tooltip/>` - Change implemenation to the upraded `Tooltip`
+- [\<Page/>](#page) - remove `upgrade`, to better performance, new API features and slickness.
+- [\<PopoverMenu/>](#popovermenu) - Change implementation to the previously `beta PopoverMenu`
+- [\<Tooltip/>](#tooltip) - Change implemenation to the upraded `Tooltip`
 
 #### Standardize components with tooltip props configuration
 Standartize the usage of internal tooltips - instead of passing specific props (e.g. `tootlipContent`), you should propagate the entire `tooltipProps`.
-- `<InputWithOptions/>` (and the entire dropdown family) - change default behavior to **not** call `clickOutside` when popover is closed.
-- `<Popover/>`  - change default behavior to **not** call `clickOutside` when popover is closed.
-- `<AddItem/>`
-- `<FillButton/>`
-- `<ImageViewer/>`
+- [\<InputWithOptions/>](#page) (and the entire dropdown family) - change default behavior to **not** call `clickOutside` when popover is closed.
+- [\<Popover/>](#page)  - change default behavior to **not** call `clickOutside` when popover is closed.
+- [\<AddItem/>](#page)
+- [\<FillButton/>](#page)
+- [\<ImageViewer/>](#page)
 
 #### Standardize input components message indications
  Change message indication to `status` and `statusMessage` instead of `error`, `errorMessage`, `help` & `helpMessage`.
- - `<ColorInput/>`
- - `<DatePicker/>`
- - `<Dropdown/>`
- - `<GoogleAddressInput/>`
- - `<ImageViewer/>`
- - `<Input/>`
- - `<InputArea/>`
- - `<InputWithOptions/>`
- - `<MultiSelect/>`
- - `<NoBorderInput/>`
- - `<NumberInput/>`
- - `<RichTextInputArea/>`
- - `<Search/>`
+- [\<AutoComplete/>](#autocomplete)
+- [\<ColorInput/>](#colorinput)
+- [\<DatePicker/>](#datepicker)
+- [\<Dropdown/>](#dropdown)
+- [\<GoogleAddressInput/>](#googleaddressinput)
+- [\<ImageViewer/>](#imageviewer)
+- [\<Input/>](#input)
+- [\<InputArea/>](#inputarea)
+- [\<InputWithOptions/>](#inputwithoptions)
+- [\<MultiSelect/>](#multiselect)
+- [\<MultiSelectCheckbox/>](#multiselectcheckbox)
+- [\<NoBorderInput/>](#noborderinput)
+- [\<NumberInput/>](#numberinput)
+- [\<Search/>](#search)
 
 #### Remove old skins and themes
 The library contained a lot of old code, including unsupported styles of the design system. Many components used a `theme` prop that is now removed
-- `<DropdownLayout/>`
-- `<GoogleAddressInput/>`
-- `<Input/>`
-- `<InputArea/>`
-- `<MultiSelect/>`
-- `<NoBorderInput/>`
-- `<NumberInput/>`
-- `<Search/>`
+- [\<AutoComplete/>](#autocomplete)
+- [\<ColorInput/>](#colorinput)
+- [\<Dropdown/>](#dropdown)
+- [\<GoogleAddressInput/>](#googleaddressinput)
+- [\<Input/>](#input)
+- [\<InputWithOptions/>](#inputwithoptions)
+- [\<MultiSelect/>](#multiselect)
+- [\<MultiSelectCheckbox/>](#multiselectcheckbox)
+- [\<NumberInput/>](#numberinput)
+- [\<Search/>](#search)
 
 
 #### More general changes
@@ -132,71 +155,61 @@ The library contained a lot of old code, including unsupported styles of the des
 - `<TableActionCell/>` - use new `Tooltip` component internally and rename the `primaryAction.theme` prop to `primaryAction.skin`
 - `<Tag/>` - wrap text by default.
 
-## Changes described per component
+## All changes described per component list
+- [\<AddItem/>](#additem)
+- [\<Avatar/>](#avatar)
+- [\<AutoComplete/>](#autocomplete)
+- [\<AutoCompleteComposite/>](#autocompletecomposite)
+- [\<Badge/>](#badge)
+- [\<BarChart/>](#barchart)
+- [\<Card.Header/>](#cardheader)
+- [\<CircularProgressBar/>](#circularprogressbar)
+- [\<ColorInput/>](#colorinput)
+- [\<DataTable/>](#datatable)
+- [\<DatePicker/>](#datepicker)
+- [\<Dropdown/>](#dropdown)
+- [\<DropdownLayout/>](#dropdownlayout)
+- [\<FieldWithSelectionComposite/>](#fieldwithselectioncomposite)
+- [\<FillButton/>](#fillbutton)
+- [\<FormField/>](#formfield)
+- [\<FullTextView/>](#fulltextview)
+- [\<GoogleAddressInputWithLabel/>](#googleaddressinputwithlabel)
+- [\<GoogleAddressInput/>](#googleaddressinput)
+- [\<HBox/>](#hbox)
+- [\<ImageViewer/>](#imageviewer)
+- [\<Input/>](#input)
+- [\<InputArea/>](#inputarea)
+- [\<InputAreaWithLabelComposite/>](#inputareawithlabelcomposite)
+- [\<InputWithOptions/>](#inputwithoptions)
+- [\<Label/>](#label)
+- [\<LinearProgressBar/>](#linearprogressbar)
+- [\<ListItemSection/>](#listitemsection)
+- [\<Loader/>](#loader)
+- [\<MessageBoxFunctionalLayout/>](#messageboxfunctionallayout)
+- [\<MultiSelect/>](#multiselect)
+- [\<MultiSelectCheckbox/>](#multiselectcheckbox)
+- [\<MultiSelectComposite/>](#multiselectcomposite)
+- [\<NoBorderInput/>](#noborderinput)
+- [\<NumberInput/>](#numberinput)
+- [\<Page/>](#page)
+- [\<Popover/>](#popover)
+- [\<PopoverMenu/>](#popovermenu)
+- [\<RadioGroup/>](#radiogroup)
+- [\<RichTextInputArea/>](#richtextinputarea)
+- [\<Search/>](#search)
+- [\<SideMenu/>](#sidemenu)
+- [\<SideMenuDrill/>](#sidemenudrill)
+- [\<SlideAnimation/>](#slideanimation)
+- [\<StatisticsWidget/>](#statisticswidget)
+- [\<StatsWidget/>](#statswidget)
+- [\<TextLink/>](#textlink)
+- [\<Table/>](#table)
+- [\<TableActionCell/>](#tableactioncell)
+- [\<Tag/>](#tag)
+- [\<ToggleButton/>](#togglebutton)
+- [\<Tooltip/>](#tooltip)
+- [\<VBox/>](#vbox)
 
-<span style="color:#c30000">links don't work in Storybook - only in GitHub. sorry for the inconvenience.</span>
-
-- [Components](#components)
-  - [\<AddItem/>](#additem)
-  - [\<Avatar/>](#avatar)
-  - [\<AutoComplete/>](#autocomplete)
-  - [\<AutoCompleteComposite/>](#autocompletecomposite)
-  - [\<Badge/>](#badge)
-  - [\<BarChart/>](#barchart)
-  - [\<Card.Header/>](#cardheader)
-  - [\<CircularProgressBar/>](#circularprogressbar)
-  - [\<ColorInput/>](#colorinput)
-  - [\<DataTable/>](#datatable)
-  - [\<DatePicker/>](#datepicker)
-  - [\<Dropdown/>](#dropdown)
-  - [\<DropdownLayout/>](#dropdownlayout)
-  - [\<FieldWithSelectionComposite/>](#fieldwithselectioncomposite)
-  - [\<FillButton/>](#fillbutton)
-  - [\<FormField/>](#formfield)
-  - [\<FullTextView/>](#fulltextview)
-  - [\<GoogleAddressInputWithLabel/>](#googleaddressinputwithlabel)
-  - [\<GoogleAddressInput/>](#googleaddressinput)
-  - [\<HBox/>](#hbox)
-  - [\<ImageViewer/>](#imageviewer)
-  - [\<Input/>](#input)
-  - [\<InputArea/>](#inputarea)
-  - [\<InputAreaWithLabelComposite/>](#inputareawithlabelcomposite)
-  - [\<InputWithOptions/>](#inputwithoptions)
-  - [\<Label/>](#label)
-  - [\<LinearProgressBar/>](#linearprogressbar)
-  - [\<ListItemSection/>](#listitemsection)
-  - [\<Loader/>](#loader)
-  - [\<MessageBoxFunctionalLayout/>](#messageboxfunctionallayout)
-  - [\<MultiSelect/>](#multiselect)
-  - [\<MultiSelectCheckbox/>](#multiselectcheckbox)
-  - [\<MultiSelectComposite/>](#multiselectcomposite)
-  - [\<NoBorderInput/>](#noborderinput)
-  - [\<NumberInput/>](#numberinput)
-  - [\<Page/>](#page)
-  - [\<Popover/>](#popover)
-  - [\<PopoverMenu/>](#popovermenu)
-  - [\<RadioGroup/>](#radiogroup)
-  - [\<RichTextInputArea/>](#richtextinputarea)
-  - [\<Search/>](#search)
-  - [\<SideMenu/>](#sidemenu)
-  - [\<SideMenuDrill/>](#sidemenudrill)
-  - [\<SlideAnimation/>](#slideanimation)
-  - [\<StatisticsWidget/>](#statisticswidget)
-  - [\<StatsWidget/>](#statswidget)
-  - [\<TextLink/>](#textlink)
-  - [\<Table/>](#table)
-  - [\<TableActionCell/>](#tableactioncell)
-  - [\<Tag/>](#tag)
-  - [\<ToggleButton/>](#togglebutton)
-  - [\<Tooltip/>](#tooltip)
-  - [\<VBox/>](#vbox)
-
-- [Guides](#guides)
-  - [Icons](#icons)
-  - [error --> status](#error--errormessage----status--statusmessage)
-  - [help prop](#help-prop)
-
-# Components
 ---
 
 ## \<AddItem/>
@@ -1482,7 +1495,7 @@ API is slimmer and easier to interact it (with the recent types addition you can
 
 This component was deleted, use `<Box/>` instead.
 
-# Guides
+# More guides
 ---
 
 ## Icons
