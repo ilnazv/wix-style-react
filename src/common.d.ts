@@ -1,5 +1,5 @@
 import { PopoverProps } from './Popover';
-import { TooltipNewProps } from './Tooltip'
+import { TooltipProps } from './Tooltip';
 
 export interface InjectedFocusableProps {
   onBlur?: () => void;
@@ -28,8 +28,8 @@ export interface PopoverCommonProps {
   timeout?: PopoverProps['timeout'];
   zIndex?: PopoverProps['zIndex'];
   moveArrowTo?: PopoverProps['moveArrowTo'];
-  onMouseEnter?: PopoverProps['onMouseEnter'],
-  onMouseLeave?: PopoverProps['onMouseLeave'],
+  onMouseEnter?: PopoverProps['onMouseEnter'];
+  onMouseLeave?: PopoverProps['onMouseLeave'];
   moveBy?: PopoverProps['moveBy'];
   hideDelay?: PopoverProps['hideDelay'];
   showDelay?: PopoverProps['showDelay'];
@@ -41,17 +41,17 @@ export interface PopoverCommonProps {
 }
 
 export interface TooltipCommonProps {
-  appendTo?: TooltipNewProps['appendTo'];
-  flip?: TooltipNewProps['flip'];
-  fixed?: TooltipNewProps['fixed'];
-  placement?: TooltipNewProps['placement'];
-  moveBy?: TooltipNewProps['moveBy'];
-  enterDelay?: TooltipNewProps['enterDelay'];
-  exitDelay?: TooltipNewProps['exitDelay'];
-  maxWidth?: TooltipNewProps['maxWidth'];
-  textAlign?: TooltipNewProps['textAlign'];
-  zIndex?: TooltipNewProps['zIndex'];
-  disabled?: TooltipNewProps['disabled'];
-  onShow?: TooltipNewProps['onShow'];
-  onHide?: TooltipNewProps['onHide'];
+  appendTo?: TooltipProps['appendTo'];
+  flip?: TooltipProps['flip'];
+  fixed?: TooltipProps['fixed'];
+  placement?: TooltipProps['placement'];
+  moveBy?: TooltipProps['moveBy'];
+  enterDelay?: TooltipProps['enterDelay'];
+  exitDelay?: TooltipProps['exitDelay'];
+  maxWidth?: TooltipProps['maxWidth'];
+  textAlign?: TooltipProps['textAlign'];
+  zIndex?: TooltipProps['zIndex'];
+  disabled?: TooltipProps['disabled'];
+  onShow?: TooltipProps['onShow'];
+  onHide?: TooltipProps['onHide'];
 }
