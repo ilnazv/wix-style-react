@@ -6,10 +6,8 @@ import Page from 'wix-style-react/Page';
 import { getTestStoryKind } from '../../../stories/storiesHierarchy';
 
 import * as s from './PageTestStoriesDeprecated.scss';
-import { header, tail, fixedContent, content } from './PageChildren';
+import { header, content } from './PageChildren';
 import { storySettings } from './storySettings';
-import ExampleEmptyState from './ExampleEmptyState';
-import { ExamplePageContainer } from './ExamplePageContainer';
 import { LongTextContent } from './SomeContentComponent';
 import Card from 'wix-style-react/Card';
 import Notification from 'wix-style-react/Notification';
