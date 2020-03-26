@@ -201,7 +201,7 @@ The library contained a lot of old code, including unsupported styles of the des
 
 ## \<AddItem/>
 
-Props:
+*Props:*
 - removed `tooltipAppendTo` - use `tooltipProps` instead.
 - removed `tooltipContent` - use `tooltipProps` instead.
 - removed `tooltipPlacement` - use `tooltipProps` instead.
@@ -210,6 +210,7 @@ Props:
 
 _Note: `tooltipProps` are defined in Tooltip component story page._
 
+*Examples:*
 <details>
   <summary>Using <code>tooltipProps</code> prop example:</summary>
 
@@ -240,10 +241,11 @@ _Note: `tooltipProps` are defined in Tooltip component story page._
 
 ## \<Avatar/>
 
-Props:
+*Props:*
 - `color` - Deprecated old values: 'blue', 'green', 'grey', 'red', 'orange'. the new values are now A1 to A6.<br/>
   There is no specific mapping between old values to new, contact your UX designer if needed.
 
+*Examples:*
 <details>
   <summary>Using new <code>color</code> prop values example:</summary>
 
@@ -260,7 +262,7 @@ Props:
 
 ## \<AutoComplete/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -272,6 +274,7 @@ Props:
 
 This component was deleted, use `<FormField/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -292,10 +295,11 @@ This component was deleted, use `<FormField/>` instead.
 
 ## \<Badge/>
 
-Testkit:
+*Testkit:*
 - removed `getPrefixIcon` - use your own dataHook on prefix element instead.
 - removed `getSuffixIcon` - use your own dataHook on suffix element instead.
 
+*Examples:*
 <details>
   <summary>Using own dataHook over <code>getPrefixIcon</code> example:</summary>
 
@@ -327,15 +331,17 @@ Testkit:
 
 ## \<BarChart/>
 
-Props:
+*Props:*
 - removed `deprecatedColors`.
   Just remove this prop, no other change required.
 
 ## \<Card.Header/>
 
-Props:
-- removed `withoutDivider` - use `<Card.Divider/>` when needed.
+*Props:*
+- removed `withoutDivider` - from now on a card will be *without* a divider by default.<br/>
+  Add a `<Card.Divider/>` when needed and delete `withoutDivider` wherever it's used.
 
+*Examples:*
 <details>
   <summary>Using own dataHook over <code><span><</span>Card.Divider/></code> example:</summary>
 
@@ -360,17 +366,17 @@ _Pay attention: In all places without withoutDivider, the divider will disappear
 
 ## \<CircularProgressBar/>
 
-Props:
+*Props:*
 - removed `shouldLoadAsync` - an experimental flag for testing dynamic imports and safe to remove.
 
-Testkit:
+*Testkit:*
 - changed `getTooltipErrorMessage` in driver (not uni) returns a `string` instead of `Promise<string>`.
 - removed `getTooltip` - use `isErrorIconShown` and `getTooltipErrorMessage` instead.
 - removed `isTooltipShown` - use `isErrorIconShown` and `getTooltipErrorMessage` instead.
 
 ## \<ColorInput/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -378,7 +384,7 @@ Props:
 - removed `help` & `helpMessage` use a `<FormField/>` wrapper instead. <br/>
   For more information and examples go to [help prop](#help-prop) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -391,11 +397,12 @@ This component is _internal_ and should not be used directly - use `<Table/>` in
 
 ## \<DatePicker/>
 
-Props:
+*Props:*
 - removed `isOpen` - use `initialOpen` instead.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
   For more information and examples go to [error --> status](#error--errormessage----status--statusmessage) section.
 
+*Exaples:*
 <details>
   <summary>Using <code>initialOpen</code> prop example:</summary>
 
@@ -412,7 +419,7 @@ Props:
 
 ## \<Dropdown/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -422,18 +429,19 @@ Props:
 
 ## \<DropdownLayout/>
 
-Props:
+*Props:*
 - removed `theme`. (We once had b2b theme, no longer supported)<br/>
   Just remove this prop, no other change required.
 
 
-Testkit:
+*Testkit:*
 - removed `hasTheme`
 
 ## \<FieldWithSelectionComposite/>
 
 This component was deleted, use `<FormField/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -454,11 +462,12 @@ This component was deleted, use `<FormField/>` instead.
 
 ## \<FillButton/>
 
-Props:
+*Props:*
 - removed `tooltipContent` - use `tooltipProps` instead
 
 _Note: `tooltipProps` are defined in Tooltip component story page._
 
+*Examples:*
 <details>
   <summary>Using <code>tooltipContent</code> prop example:</summary>
 
@@ -479,7 +488,7 @@ _Note: `tooltipProps` are defined in Tooltip component story page._
 
 ## \<FormField/>
 
-Testkit:
+*Testkit:*
 - (protractor) removed `getTooltipInfoValue`.
 
 ## \<FullTextView/>
@@ -490,6 +499,7 @@ This component was deleted, use `<Text/>` instead.
 
 This component was deleted, use `<FormField/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -510,7 +520,7 @@ This component was deleted, use `<FormField/>` instead.
 
 ## \<GoogleAddressInput/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -524,12 +534,12 @@ This component was deleted, use `<Box/>` instead.
 
 ## \<ImageViewer/>
 
-Props:
+*Props:*
 - removed `tooltipPlacement` - use `tooltipProps` instead.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
   For more information and examples go to [error --> status](#error--errormessage----status--statusmessage) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`
 - added `getStatus`
 - added `hasStatusMessage`
@@ -537,6 +547,7 @@ Testkit:
 - removed `isErrorVisible` - use `hasStatus` instead
 - removed `getErrorTooltipContent` - use `getStatusMessage` instead
 
+*Examples:*
 <details>
   <summary>Using <code>tooltipContent</code> prop example:</summary>
 
@@ -559,7 +570,7 @@ Testkit:
 
 ## \<Input/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -574,7 +585,7 @@ Behavior:
 - `showClearButton` - previously, clicking on the clear button would have trigger *both* `onChange()` *and* `onClear()`.<br/>
   Now, clicking on the clear button will trigger *only* `onClear()`.
 
-Testkit:
+*Testkit:*
 - removed `hasHelp`
 - removed `clickUnit`
 - removed `getUnit`
@@ -585,6 +596,7 @@ Testkit:
 - removed `getTooltipElement`
 - removed `getTooltipDataHook`
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>Input.Affix<span>/></span></code> sub component example:</summary>
 
@@ -628,12 +640,12 @@ Testkit:
 
 ## \<InputArea/>
 
-Props:
+*Props:*
 - removed `onTooltipShow`.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
   For more information and examples go to [error --> status](#error--errormessage----status--statusmessage) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -651,6 +663,7 @@ Testkit:
 
 This component was deleted, use `<FormField/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -671,7 +684,7 @@ This component was deleted, use `<FormField/>` instead.
 
 ## \<InputWithOptions/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -687,6 +700,7 @@ Depends on your use case, you can use one of the following:
 - `<FormField/>`
 - `<Text tagName="label">`
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -724,10 +738,10 @@ Depends on your use case, you can use one of the following:
 
 ## \<LinearProgressBar/>
 
-Props:
+*Props:*
 - removed `shouldLoadAsync` - an experimental flag for testing dynamic imports and safe to remove.
 
-Testkit:
+*Testkit:*
 - changed `getTooltipErrorMessage` in driver (not uni) returns a `string` instead of a `Promise<string>`.
 - removed `getTooltip` - use `isErrorIconShown` and `getTooltipErrorMessage` instead.
 - removed `isTooltipShown` - use `isErrorIconShown` and `getTooltipErrorMessage` instead.
@@ -739,17 +753,17 @@ General:
 
 ## \<Loader/>
 
-Props:
+*Props:*
 - removed `shouldLoadAsync` - an experimental flag for testing dynamic imports and safe to remove.
 
 ## \<MessageBoxFunctionalLayout/>
 
-Props:
+*Props:*
 - removed value `green` in prop `theme` - will fall back to `blue`.
 
 ## \<MultiSelect/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -757,7 +771,7 @@ Props:
 - removed `help` & `helpMessage` use a `<FormField/>` wrapper instead. <br/>
   For more information and examples go to [help prop](#help-prop) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -766,7 +780,7 @@ Testkit:
 
 ## \<MultiSelectCheckbox/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -778,6 +792,7 @@ Props:
 
 This component was deleted, use `<FormField/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>FormField<span>/></span></code> example:</summary>
 
@@ -798,11 +813,11 @@ This component was deleted, use `<FormField/>` instead.
 
 ## \<NoBorderInput/>
 
-Props:
+*Props:*
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
   For more information and examples go to [error --> status](#error--errormessage----status--statusmessage) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -810,7 +825,7 @@ Testkit:
 
 ## \<NumberInput/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -818,7 +833,7 @@ Props:
 - removed `help` & `helpMessage` use a `<FormField/>` wrapper instead. <br/>
   For more information and examples go to [help prop](#help-prop) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -826,7 +841,7 @@ Testkit:
 
 ## \<Page/>
 
-Props:
+*Props:*
 - removed `upgrade` - component is now upgraded by default
 
 Features:
@@ -896,14 +911,14 @@ This will stretch:
 
 ## \<Popover/>
 
-Props:
+*Props:*
 - removed `disableClickOutsideWhenClosed`, this functionality is now permanent. This means the `onClickoutside` callback will no longer be called when the component is in it's collpased state.
 
 ## \<PopoverMenu/>
 
 Old PopoverMenu component was removed and replaced with new component that was previously available as `beta/PopoverMenu`.
 
-Props:
+*Props:*
 - removed `buttonTheme` prop. Instead, use the `triggerElement` prop and set <IconButton/> with the relevant `skin`.
 - `appentToParent` prop should be changed to `appendTo="parent"`.
 
@@ -937,12 +952,13 @@ import More from 'wix-ui-icons-common/More';
 
 ## \<RadioGroup/>
 
-Props:
+*Props:*
 - removed `type`.
 
-Testkit:
+*Testkit:*
 - removed `isButtonType`.
 
+*Examples:*
 <details>
   <summary>Using removed <code>type</code> prop with value <code>button</code> example:</summary>
 
@@ -959,7 +975,7 @@ Testkit:
 
 ## \<RichTextInputArea/>
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -969,7 +985,7 @@ Testkit:
 
 ## \<Search/>
 
-Props:
+*Props:*
 - removed `theme`.
   For more information and examples go to [theme prop](#theme-prop) section.
 - removed `error` & `errorMessage` to `status` & `statusMessage`. <br/>
@@ -977,7 +993,7 @@ Props:
 - removed `help` & `helpMessage` use a `<FormField/>` wrapper instead. <br/>
   For more information and examples go to [help prop](#help-prop) section.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`.
 - added `getStatus`.
 - added `hasStatusMessage`.
@@ -997,10 +1013,11 @@ For more information visit [\<Sidebar/>'s storybook page](https://wix-style-reac
 
 ## \<StatisticsWidget/>
 
-Props:
+*Props:*
 - removed `statistics` use `items` instead.<br>
   _Note: No change needed in an item._
 
+*Examples:*
 <details>
   <summary>Using <code>items</code> prop example:</summary>
 
@@ -1029,6 +1046,7 @@ This component was deleted, use `<StatisticsWidget/>` instead.
 3. Description tooltip
 4. Customized text instead of elipssis
 
+*Examples:*
 <details>
   <summary>Migrating a Stats widget example with percents example:</summary>
 
@@ -1271,6 +1289,7 @@ This component was deleted, use `<StatisticsWidget/>` instead.
 ## \<TextLink/>
 This component was deleted, use `<TextButton as="a"/>` instead.
 
+*Examples:*
 <details>
   <summary>Using <code><span><</span>TextButton<span>/></span></code> component example:</summary>
 
@@ -1287,7 +1306,7 @@ This component was deleted, use `<TextButton as="a"/>` instead.
 
 ## \<Table/>
 
-Testkit:
+*Testkit:*
 - removed `clickRowChecbox` - removed due to typo, use `clickRowCheckbox` instead
 
 ## \<TableActionCell/>
@@ -1296,10 +1315,11 @@ The only change is that internally, the new `<PopoverMenu/>` is used.<br>
 Therefore the prop `popoverMenuProps` contains new values now.<br>
 For more information about `<PopoverMenu/>` visit [`<PopoverMenu/>`'s story page](https://wix-style-react.now.sh/?path=/story/components-api-components--popovermenu)
 
-Props:
+*Props:*
 - removed `upgrade` - component is now upgraded by default
 - changed `primaryAction.theme` to `primaryAction.skin` (with new values)
 
+*Examples:*
 <details>
   <summary>Using <code>primaryAction.skin</code> prop example:</summary>
 
@@ -1324,18 +1344,19 @@ Props:
 
 ## \<Tag/>
 
-Props:
+*Props:*
 - removed `wrap` - now text has ellipsis by default<br>
   Just remove this prop, no other change required.
 
 ## \<ToggleButton/>
 
-Props:
+*Props:*
 - removed `tooltipContent` - use `labelValue` instead.
 
-Testkit:
+*Testkit:*
 - removed `getTooltipText` - use `getLabelValue` instead.
 
+*Examples:*
 <details>
   <summary>Using <code>labelValue</code> prop example:</summary>
 
@@ -1524,14 +1545,14 @@ Relevant for components:
 - [\<Search/>](#search)
 
 
-Props:
+*Props:*
 - removed `error` & `errorMessage`
 - added `status` & `statusMessage`
 
 The prop `status` has more options than the regular error.<br>
 It can be on of `error`, `warning`, or `loading`, each have it's own style and icon.
 
-Testkit:
+*Testkit:*
 - added `hasStatus`
 - added `getStatus`
 - added `hasStatusMessage`
@@ -1542,6 +1563,7 @@ Testkit:
 - removed `isErrorVisible` - use `hasStatus` instead
 - removed `getErrorTooltipContent` - use `getStatusMessage` instead
 
+*Examples:*
 <details>
   <summary>Using <code>status</code> prop example:</summary>
 
@@ -1599,11 +1621,13 @@ Relevant for components:
 - [\<NumberInput/>](#numberinput)
 - [\<Search/>](#search)
 
-Props:
+*Props:*
 - removed `help` & `helpMessage` use a `<FormField/>` wrapper instead
 
-Testkit:
+*Testkit:*
 - removed `hasHelp` - use `<FormField/>` testkit instead
+
+*Example:*
 
 Before:
 ```jsx
