@@ -88,7 +88,6 @@ function MultiSelectWithAllProps() {
       textOverflow="clip"
       tooltipPlacement="bottom"
       type="text"
-      updateControlledOnClear
       value="value"
       withSelection
       closeOnSelect

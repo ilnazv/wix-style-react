@@ -65,7 +65,6 @@ function NoBorderInputWithAllProps() {
       textOverflow="clip"
       tooltipPlacement="bottom"
       type="text"
-      updateControlledOnClear
       value="value"
       withSelection
     />

@@ -68,7 +68,6 @@ function SearchWithAllProps() {
       textOverflow="clip"
       tooltipPlacement="left"
       type="text"
-      updateControlledOnClear
       value="value"
       withSelection
       closeOnSelect

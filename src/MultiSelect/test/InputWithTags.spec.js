@@ -48,16 +48,11 @@ describe('InputWithTags', () => {
       expect(onClear).toHaveBeenCalledTimes(1);
     });
 
-    describe('updateControlledOnClear is true', () => {
+    describe('Clearing input', () => {
       it('should NOT trigger onChange on clearing', async () => {
         const onChange = jest.fn();
         const { driver } = render(
-          <InputWithTags
-            onChange={onChange}
-            value="some value"
-            clearButton
-            updateControlledOnClear
-          />,
+          <InputWithTags onChange={onChange} value="some value" clearButton />,
         );
         await driver.inputDriver().clickClear();
         expect(onChange).toHaveBeenCalledTimes(0);
@@ -66,12 +61,7 @@ describe('InputWithTags', () => {
       it('should trigger onClear on clearing', async () => {
         const onClear = jest.fn();
         const { driver } = render(
-          <InputWithTags
-            onClear={onClear}
-            value="some value"
-            clearButton
-            updateControlledOnClear
-          />,
+          <InputWithTags onClear={onClear} value="some value" clearButton />,
         );
         expect(onClear).toHaveBeenCalledTimes(0);
         await driver.inputDriver().clickClear();

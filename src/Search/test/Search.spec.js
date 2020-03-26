@@ -198,16 +198,11 @@ describe('Search', () => {
         );
       });
 
-      describe('updateControlledOnClear is true', () => {
+      describe('Clearing input', () => {
         it('should NOT trigger onChange on clearing', async () => {
           const onChange = jest.fn();
           const { inputDriver } = createDriver(
-            <Search
-              value="fox"
-              onChange={onChange}
-              clearButton
-              updateControlledOnClear
-            />,
+            <Search value="fox" onChange={onChange} clearButton />,
           );
           expect(onChange).toHaveBeenCalledTimes(0);
           await inputDriver.clickClear();
@@ -223,7 +218,6 @@ describe('Search', () => {
               onChange={() => {}}
               clearButton
               onClear={onClear}
-              updateControlledOnClear
             />,
           );
           expect(onClear).toHaveBeenCalledTimes(0);
