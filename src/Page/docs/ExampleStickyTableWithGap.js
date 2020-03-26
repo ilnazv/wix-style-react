@@ -5,12 +5,12 @@ import Breadcrumbs from 'wix-style-react/Breadcrumbs';
 import Button from 'wix-style-react/Button';
 import Card from 'wix-style-react/Card';
 import Checkbox from 'wix-style-react/Checkbox';
+import IconButton from 'wix-style-react/IconButton';
 import Dropdown from 'wix-style-react/Dropdown';
 import { Container, Row } from 'wix-style-react/Grid';
 import Highlighter from 'wix-style-react/Highlighter';
 import Page from 'wix-style-react/Page';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
 import Search from 'wix-style-react/Search';
 import Table from 'wix-style-react/Table';
 import TableActionCell from 'wix-style-react/TableActionCell';
@@ -308,13 +308,17 @@ const renderPageHeader = () => {
       <Box>
         <Box>
           <PopoverMenu
-            buttonTheme="icon-greybackground"
+            triggerElement={
+              <IconButton priority="secondary">
+                <Icons.More />
+              </IconButton>
+            }
             placement="bottom"
             size="normal"
-            appendToParent
+            appendTo='parent'
           >
-            <PopoverMenuItem onClick={() => {}} text="Refresh" />
-            <PopoverMenuItem onClick={() => {}} text="Trash" />
+            <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />
+            <PopoverMenu.MenuItem onClick={() => {}} text="Trash" />
           </PopoverMenu>
         </Box>
         <Box marginLeft="small" marginRight="small">
