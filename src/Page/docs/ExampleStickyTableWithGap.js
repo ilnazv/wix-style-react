@@ -309,7 +309,7 @@ const renderPageHeader = () => {
         <Box>
           <PopoverMenu
             triggerElement={
-              <IconButton priority="secondary">
+              <IconButton skin="inverted">
                 <Icons.More />
               </IconButton>
             }
