@@ -4,7 +4,8 @@ import Page from 'wix-style-react/Page';
 import Button from 'wix-style-react/Button';
 import Box from 'wix-style-react/Box';
 import PopoverMenu from 'wix-style-react/PopoverMenu';
-import PopoverMenuItem from 'wix-style-react/PopoverMenuItem';
+import IconButton from 'wix-style-react/IconButton';
+import More from 'wix-ui-icons-common/More';
 
 import SomeContentComponent from './SomeContentComponent';
 import SomeTailComponent from './SomeTailComponent';
@@ -16,14 +17,18 @@ const ActionsBar = () => {
       <Box>
         <PopoverMenu
           dataHook="example-page-header-popover-menu"
-          buttonTheme="icon-greybackground"
+          triggerElement={
+            <IconButton skin="inverted">
+              <More />
+            </IconButton>
+          }
           placement="bottom"
           size="normal"
-          appendToParent
+          appendTo="parent"
         >
-          <PopoverMenuItem onClick={() => {}} text="Refresh" />
-          <PopoverMenuItem onClick={() => {}} text="Trash" />
-          <PopoverMenuItem onClick={() => {}} text="Edit" />
+          <PopoverMenu.MenuItem onClick={() => {}} text="Refresh" />
+          <PopoverMenu.MenuItem onClick={() => {}} text="Trash" />
+          <PopoverMenu.MenuItem onClick={() => {}} text="Edit" />
         </PopoverMenu>
       </Box>
       <Box marginLeft="small" marginRight="small">
