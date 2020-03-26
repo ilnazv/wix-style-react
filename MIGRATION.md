@@ -6,7 +6,7 @@
 
 _NOTE <span style="color:#c30000">links don't work in Storybook - only in GitHub. sorry for the inconvenience.</span>_
 
-##index
+## Index
 - [Suggested steps for the migration](#suggested-steps-for-the-migration)
 - [Changes described by domain](#changes-described-by-domain)
 - [All changes described per component list](#all-changes-described-per-component-list)
