@@ -1,17 +1,19 @@
 import * as React from 'react';
-import { FocusOptionsPolyfill, OmitPolyfill} from '../common';
-import {DropdownLayoutValueOption, DropdownLayoutProps,
+import {
+  FocusOptionsPolyfill,
+  OmitPolyfill,
+  PopoverCommonProps,
+} from '../common';
+import {
+  DropdownLayoutValueOption,
+  DropdownLayoutProps,
 } from '../DropdownLayout';
 import { InputProps } from '../Input';
-import { PopoverCommonProps } from '../common'
 
 export interface InputWithOptionsProps<
   ManualInputFn = ManualInputFnSignature,
   OnSelectFn = OnSelectFnSignature
->
-  extends InputProps,
-    OmitPolyfill<DropdownLayoutProps, 'onSelect'> {
-
+> extends InputProps, OmitPolyfill<DropdownLayoutProps, 'onSelect'> {
   autocomplete?: string;
   inputElement?: React.ReactElement;
   closeOnSelect?: boolean;
@@ -28,7 +30,6 @@ export interface InputWithOptionsProps<
   onSelect?: OnSelectFn;
   onOptionsShow?: () => void;
   onOptionsHide?: () => void;
-  disableClickOutsideWhenClosed?: boolean;
 }
 
 export default class InputWithOptions<

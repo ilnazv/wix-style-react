@@ -110,7 +110,6 @@ function InputWithOptionsWithAllProps() {
       overflow="scroll"
       onOptionsShow={() => {}}
       onOptionsHide={() => {}}
-      disableClickOutsideWhenClosed
       options={[
         {
           value: 'a',

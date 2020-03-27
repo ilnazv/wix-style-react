@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 import Popover from '..';
 import { popoverTestkitFactory } from '../../../testkit';
 import { popoverTestkitFactory as popoverEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { popoverTestkitFactory as popoverPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
-import * as enzyme from "enzyme";
-import * as puppeteer from "puppeteer";
+import * as enzyme from 'enzyme';
+import * as puppeteer from 'puppeteer';
 
 function PopoverWithMandatoryProps() {
   return <Popover shown placement="auto" />;
@@ -18,7 +18,6 @@ function PopoverWithAllProps() {
       className="cls"
       customArrow={(_p, _a) => <div />}
       dataHook="hook"
-      disableClickOutsideWhenClosed
       dynamicWidth
       fixed
       flip
@@ -52,19 +51,19 @@ function PopoverWithAllProps() {
 
 async function testkits() {
   const testkit = popoverTestkitFactory({
-    dataHook: "hook",
-    wrapper: document.createElement("div")
+    dataHook: 'hook',
+    wrapper: document.createElement('div'),
   });
 
   const enzymeTestkit = popoverEnzymeTestkitFactory({
-    dataHook: "hook",
-    wrapper: enzyme.mount(<div />)
+    dataHook: 'hook',
+    wrapper: enzyme.mount(<div />),
   });
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   const puppeteerTestkit = await popoverPuppeteerTestkitFactory({
-    dataHook: "hook",
-    page
+    dataHook: 'hook',
+    page,
   });
 }
