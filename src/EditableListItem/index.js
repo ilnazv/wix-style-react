@@ -1,1 +1,1 @@
-export { default } from './EditableListItem.js';
+export { default, editableListItemBuilder } from './EditableListItem.js';

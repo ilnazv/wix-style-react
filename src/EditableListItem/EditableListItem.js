@@ -85,6 +85,38 @@ class EditableListItem extends React.PureComponent {
   }
 }
 
+export const editableListItemBuilder = ({
+  id,
+  dataHook,
+  className,
+  size,
+  placeholder,
+  onApprove,
+  onCancel,
+  cancelButtonTooltip,
+  approveButtonTooltip,
+  status,
+  statusMessage,
+}) => ({
+  id,
+  disabled: true,
+  value: props => (
+    <EditableListItem
+      {...props}
+      dataHook={dataHook}
+      className={className}
+      size={size}
+      placeholder={placeholder}
+      onApprove={onApprove}
+      onCancel={onCancel}
+      cancelButtonTooltip={cancelButtonTooltip}
+      approveButtonTooltip={approveButtonTooltip}
+      statusMessage={statusMessage}
+      status={status}
+    />
+  ),
+});
+
 EditableListItem.displayName = 'EditableListItem';
 
 EditableListItem.propTypes = {
