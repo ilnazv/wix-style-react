@@ -75,10 +75,10 @@ EditableListItem.propTypes = {
   placeholder: PropTypes.string,
 
   /** Function to be called after clicking on approve */
-  onApprove: PropTypes.func,
+  onApprove: PropTypes.func.isRequired,
 
   /** Function to be called after clicking on cancel */
-  onCancel: PropTypes.func,
+  onCancel: PropTypes.func.isRequired,
 
   /** Cancel button tooltip text */
   cancelButtonTooltip: PropTypes.string,
