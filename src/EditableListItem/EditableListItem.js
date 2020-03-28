@@ -30,6 +30,7 @@ class EditableListItem extends React.PureComponent {
       approveButtonTooltip,
       status,
       size,
+      statusMessage,
     } = this.props;
 
     return (
@@ -39,6 +40,7 @@ class EditableListItem extends React.PureComponent {
           status={status}
           onChange={this.onInputChange}
           placeholder={placeholder}
+          statusMessage={statusMessage}
           dataHook={dataHooks.editableListInput}
         />
         <Tooltip
@@ -101,6 +103,9 @@ EditableListItem.propTypes = {
 
   /** Approve button tooltip text */
   approveButtonTooltip: PropTypes.string,
+
+  /** The status (error/loading) message to display when hovering the status icon, if not given or empty there will be no tooltip */
+  statusMessage: PropTypes.node,
 
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,
