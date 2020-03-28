@@ -13,11 +13,15 @@ import {
   api,
   testkit,
 } from 'wix-storybook-utils/Sections';
+import Input from '../../Input';
+import DropdownLayout from '../../DropdownLayout';
+import { editableListItemBuilder } from '../EditableListItem';
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 
 import EditableListItem from '..';
+import { simple } from './examples';
 
 const example = config => baseExample({ components: allComponents, ...config });
 
@@ -29,19 +33,28 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
+    placeholder: 'Value',
+    cancelButtonTooltip: 'Cancel',
+    approveButtonTooltip: 'Approve',
   },
 
   exampleProps: {
-    // Put here presets of props, for more info:
-    // https://github.com/wix/wix-ui/blob/master/packages/wix-storybook-utils/docs/usage.md#using-list
+    status: [Input.StatusError, Input.StatusLoading, Input.StatusWarning],
+    statusMessage: '',
+    size: ['small', 'medium'],
   },
 
   sections: [
     header({
       sourceUrl:
         'https://github.com/wix/wix-style-react/tree/master/src/EditableListItem/',
-      component: <EditableListItem buttonText="Click me!" />,
+      component: (
+        <EditableListItem
+          placeholder="Value"
+          cancelButtonTooltip="Cancel"
+          approveButtonTooltip="Approve"
+        />
+      ),
     }),
 
     tabs([
@@ -51,10 +64,12 @@ export default {
           description({
             title: 'Description',
             text:
-              'This line here should briefly describe component in just a sentence or two. It should be short and easy to read.',
+              'editableListItemBuilder is an editable text that should be used inside list',
           }),
 
-          importExample(),
+          importExample(
+            "import { editableListItemBuilder } from 'wix-style-react/EditableListItem';",
+          ),
 
           divider(),
 
@@ -62,15 +77,19 @@ export default {
 
           example({
             title: 'Simple Usage',
-            text: 'A simple example with compact preview',
-            source: '<EditableListItem buttonText="Hello World!"/>',
+            text: 'A simple example of usage inside DropdownLayout',
+            source: simple,
           }),
 
           code({
             title: 'Full Interactive Preview',
             description: 'A non compact version of same code example as above',
-            source: '<EditableListItem buttonText="Hello World!"/>',
-            components: { EditableListItem },
+            source: simple,
+            components: {
+              EditableListItem,
+              DropdownLayout,
+              editableListItemBuilder,
+            },
           }),
         ],
       }),
