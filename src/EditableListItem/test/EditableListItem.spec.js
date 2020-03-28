@@ -52,4 +52,12 @@ describe('EditableListItem', () => {
       expect(onApprove).toHaveBeenCalledWith(inputValue);
     });
   });
+
+  it('should call onCancel when clicked', async () => {
+    const onCancel = jest.fn();
+    const { driver } = render(<EditableListItem onCancel={onCancel} />);
+    await driver.clickCancel();
+
+    expect(onCancel).toHaveBeenCalled();
+  });
 });
