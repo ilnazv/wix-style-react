@@ -29,11 +29,13 @@ class EditableListItem extends React.PureComponent {
       cancelButtonTooltip,
       approveButtonTooltip,
       status,
+      size,
     } = this.props;
 
     return (
       <div data-hook={dataHook}>
         <Input
+          size={size}
           status={status}
           onChange={this.onInputChange}
           placeholder={placeholder}
@@ -46,6 +48,7 @@ class EditableListItem extends React.PureComponent {
           content={cancelButtonTooltip}
         >
           <IconButton
+            size={size}
             onClick={onCancel}
             dataHook={dataHooks.editableListCancelButton}
           />
@@ -57,6 +60,7 @@ class EditableListItem extends React.PureComponent {
           dataHook={dataHooks.editableListApproveButtonTooltip}
         >
           <IconButton
+            size={size}
             disabled={!this.state.value}
             onClick={this.onApproveClicked}
             dataHook={dataHooks.editableListApproveButton}
@@ -92,6 +96,9 @@ EditableListItem.propTypes = {
     Input.StatusLoading,
   ]),
 
+  /** Specifies the size of the input */
+  size: PropTypes.oneOf(['small', 'medium']),
+
   /** Approve button tooltip text */
   approveButtonTooltip: PropTypes.string,
 
@@ -99,6 +106,8 @@ EditableListItem.propTypes = {
   className: PropTypes.string,
 };
 
-EditableListItem.defaultProps = {};
+EditableListItem.defaultProps = {
+  size: 'small',
+};
 
 export default EditableListItem;

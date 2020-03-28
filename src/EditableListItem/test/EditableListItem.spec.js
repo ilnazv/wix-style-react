@@ -152,4 +152,35 @@ describe('EditableListItem', () => {
       expect(await driver.isInputHasError()).toBe(true);
     });
   });
+
+  describe('size prop', () => {
+    it('should render all in small size', async () => {
+      const { driver } = render(
+        <EditableListItem
+          onApprove={jest.fn()}
+          onCancel={jest.fn()}
+          size={'small'}
+        />,
+      );
+      expect(await driver.isInputOfSize('small')).toBe(true);
+    });
+
+    it('should render all in medium size', async () => {
+      const { driver } = render(
+        <EditableListItem
+          onApprove={jest.fn()}
+          onCancel={jest.fn()}
+          size={'medium'}
+        />,
+      );
+      expect(await driver.isInputOfSize('medium')).toBe(true);
+    });
+
+    it('should render all in small size when no size prop is passed', async () => {
+      const { driver } = render(
+        <EditableListItem onApprove={jest.fn()} onCancel={jest.fn()} />,
+      );
+      expect(await driver.isInputOfSize('small')).toBe(true);
+    });
+  });
 });

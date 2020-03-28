@@ -44,5 +44,6 @@ export const editableListItemDriverFactory = (base, body) => {
     approveButtonTooltipText: () => approveButtonTooltipDriver.getTooltipText(),
     hoverApproveButton: () => approveButtonTooltipDriver.mouseEnter(),
     isInputHasError: () => inputDriver.hasError(),
+    isInputOfSize: size => inputDriver.isOfSize(size),
   };
 };
