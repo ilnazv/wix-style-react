@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { createRendererWithUniDriver, cleanup } from '../../../test/utils/unit';
-
+import Input from '../../Input';
 import EditableListItem from '../EditableListItem';
 import { editableListItemPrivateDriverFactory } from './EditableListItem.private.uni.driver';
 
@@ -137,6 +137,19 @@ describe('EditableListItem', () => {
       await driver.enterText('some text');
       await driver.hoverApproveButton();
       expect(await driver.isApproveButtonTooltipExists()).toBe(false);
+    });
+  });
+
+  describe('status prop', () => {
+    it('should accept input status prop', async () => {
+      const { driver } = render(
+        <EditableListItem
+          onApprove={jest.fn()}
+          onCancel={jest.fn()}
+          status={Input.StatusError}
+        />,
+      );
+      expect(await driver.isInputHasError()).toBe(true);
     });
   });
 });

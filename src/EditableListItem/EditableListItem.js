@@ -28,11 +28,13 @@ class EditableListItem extends React.PureComponent {
       onCancel,
       cancelButtonTooltip,
       approveButtonTooltip,
+      status,
     } = this.props;
 
     return (
       <div data-hook={dataHook}>
         <Input
+          status={status}
           onChange={this.onInputChange}
           placeholder={placeholder}
           dataHook={dataHooks.editableListInput}
@@ -82,6 +84,13 @@ EditableListItem.propTypes = {
 
   /** Cancel button tooltip text */
   cancelButtonTooltip: PropTypes.string,
+
+  /** Input status - use to display an status indication for the user. for example: 'error', 'warning' or 'loading' */
+  status: PropTypes.oneOf([
+    Input.StatusError,
+    Input.StatusWarning,
+    Input.StatusLoading,
+  ]),
 
   /** Approve button tooltip text */
   approveButtonTooltip: PropTypes.string,
