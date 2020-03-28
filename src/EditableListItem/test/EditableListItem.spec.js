@@ -41,5 +41,15 @@ describe('EditableListItem', () => {
       await driver.enterText('some text');
       expect(await driver.isApproveButtonDisabled()).toBe(false);
     });
+
+    it('should call onApprove with the input value when clicked', async () => {
+      const onApprove = jest.fn();
+      const inputValue = 'some value';
+      const { driver } = render(<EditableListItem onApprove={onApprove} />);
+      await driver.enterText(inputValue);
+      await driver.clickApprove();
+
+      expect(onApprove).toHaveBeenCalledWith(inputValue);
+    });
   });
 });

@@ -22,5 +22,6 @@ export const editableListItemDriverFactory = (base, body) => {
     inputPlaceholder: () => inputDriver.getPlaceholder(),
     isApproveButtonDisabled: () => approveButtonDriver.isButtonDisabled(),
     enterText: text => inputDriver.enterText(text),
+    clickApprove: () => approveButtonDriver.click(),
   };
 };
