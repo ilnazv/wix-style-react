@@ -5,6 +5,7 @@ import Input from '../Input';
 // import styles from './EditableListItem.st.css';
 import { dataHooks } from './constants';
 import IconButton from '../IconButton';
+import Tooltip from '../Tooltip';
 
 /** EditableListItem */
 class EditableListItem extends React.PureComponent {
@@ -21,7 +22,13 @@ class EditableListItem extends React.PureComponent {
   };
 
   render() {
-    const { dataHook, placeholder, onCancel } = this.props;
+    const {
+      dataHook,
+      placeholder,
+      onCancel,
+      cancelButtonTooltip,
+      approveButtonTooltip,
+    } = this.props;
 
     return (
       <div data-hook={dataHook}>
@@ -30,15 +37,27 @@ class EditableListItem extends React.PureComponent {
           placeholder={placeholder}
           dataHook={dataHooks.editableListInput}
         />
-        <IconButton
-          onClick={onCancel}
-          dataHook={dataHooks.editableListCancelButton}
-        />
-        <IconButton
-          disabled={!this.state.value}
-          onClick={this.onApproveClicked}
-          dataHook={dataHooks.editableListApproveButton}
-        />
+        <Tooltip
+          upgrade
+          dataHook={dataHooks.editableListCancelButtonTooltip}
+          content={cancelButtonTooltip}
+        >
+          <IconButton
+            onClick={onCancel}
+            dataHook={dataHooks.editableListCancelButton}
+          />
+        </Tooltip>
+        <Tooltip
+          upgrade
+          content={approveButtonTooltip}
+          dataHook={dataHooks.editableListApproveButtonTooltip}
+        >
+          <IconButton
+            disabled={!this.state.value}
+            onClick={this.onApproveClicked}
+            dataHook={dataHooks.editableListApproveButton}
+          />
+        </Tooltip>
       </div>
     );
   }
@@ -58,6 +77,12 @@ EditableListItem.propTypes = {
 
   /** Function to be called after clicking on cancel */
   onCancel: PropTypes.func,
+
+  /** Cancel button tooltip text */
+  cancelButtonTooltip: PropTypes.string,
+
+  /** Approve button tooltip text */
+  approveButtonTooltip: PropTypes.string,
 
   /** A css class to be applied to the component's root element */
   className: PropTypes.string,

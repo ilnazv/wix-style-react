@@ -60,4 +60,38 @@ describe('EditableListItem', () => {
 
     expect(onCancel).toHaveBeenCalled();
   });
+
+  describe('tooltips', () => {
+    it('should render cancel button tooltip', async () => {
+      const cancelButtonTooltip = 'cancel tooltip';
+      const { driver } = render(
+        <EditableListItem cancelButtonTooltip={cancelButtonTooltip} />,
+      );
+      await driver.hoverCancelButton();
+      expect(await driver.isCancelButtonTooltipExists()).toBe(true);
+      expect(await driver.cancelButtonTooltipText()).toBe(cancelButtonTooltip);
+    });
+
+    it('should not show tooltip when approve button is disabled', async () => {
+      const approveButtonTooltip = 'approve tooltip';
+      const { driver } = render(
+        <EditableListItem approveButtonTooltip={approveButtonTooltip} />,
+      );
+      await driver.hoverApproveButton();
+      expect(await driver.isApproveButtonTooltipExists()).toBe(false);
+    });
+
+    it('should show tooltip when approve button is enabled', async () => {
+      const approveButtonTooltip = 'approve tooltip';
+      const { driver } = render(
+        <EditableListItem approveButtonTooltip={approveButtonTooltip} />,
+      );
+      await driver.enterText('some text');
+      await driver.hoverApproveButton();
+      expect(await driver.isApproveButtonTooltipExists()).toBe(true);
+      expect(await driver.approveButtonTooltipText()).toBe(
+        approveButtonTooltip,
+      );
+    });
+  });
 });
