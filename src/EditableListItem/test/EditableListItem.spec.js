@@ -34,4 +34,12 @@ describe('EditableListItem', () => {
     const { driver } = render(<EditableListItem />);
     expect(await driver.isApproveButtonDisabled()).toBe(true);
   });
+
+  describe('when value is entered', () => {
+    it('should show enabled confirm button', async () => {
+      const { driver } = render(<EditableListItem />);
+      await driver.enterText('some text');
+      expect(await driver.isApproveButtonDisabled()).toBe(false);
+    });
+  });
 });

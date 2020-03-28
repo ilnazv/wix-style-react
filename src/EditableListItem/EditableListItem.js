@@ -8,17 +8,29 @@ import IconButton from '../IconButton';
 
 /** EditableListItem */
 class EditableListItem extends React.PureComponent {
+  state = {
+    value: '',
+  };
+
+  onInputChange = e => {
+    this.setState({ value: e.target.value });
+  };
+
   render() {
     const { dataHook, placeholder } = this.props;
 
     return (
       <div data-hook={dataHook}>
         <Input
+          onChange={this.onInputChange}
           placeholder={placeholder}
           dataHook={dataHooks.editableListInput}
         />
         <IconButton dataHook={dataHooks.editableListCancelButton} />
-        <IconButton disabled dataHook={dataHooks.editableListApproveButton} />
+        <IconButton
+          disabled={!this.state.value}
+          dataHook={dataHooks.editableListApproveButton}
+        />
       </div>
     );
   }
