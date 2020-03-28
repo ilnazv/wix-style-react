@@ -19,5 +19,8 @@ describe('EditableListItem', () => {
     const { driver } = render(<EditableListItem />);
 
     expect(await driver.exists()).toBe(true);
+    expect(await driver.inputExists()).toBe(true);
+    expect(await driver.approveButtonExists()).toBe(true);
+    expect(await driver.cancelButtonExists()).toBe(true);
   });
 });

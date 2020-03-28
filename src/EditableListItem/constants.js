@@ -1,4 +1,5 @@
 export const dataHooks = {
-  editableListItemCount: 'editableListItem-count',
-  editableListItemButton: 'editableListItem-button',
+  editableListInput: 'editable-list-input',
+  editableListApproveButton: 'editable-list-approve-button',
+  editableListCancelButton: 'editable-list-cancel-button',
 };
