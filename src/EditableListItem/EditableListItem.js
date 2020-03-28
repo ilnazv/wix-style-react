@@ -39,6 +39,7 @@ class EditableListItem extends React.PureComponent {
         />
         <Tooltip
           upgrade
+          disabled={!cancelButtonTooltip}
           dataHook={dataHooks.editableListCancelButtonTooltip}
           content={cancelButtonTooltip}
         >
@@ -49,6 +50,7 @@ class EditableListItem extends React.PureComponent {
         </Tooltip>
         <Tooltip
           upgrade
+          disabled={!approveButtonTooltip || !this.state.value}
           content={approveButtonTooltip}
           dataHook={dataHooks.editableListApproveButtonTooltip}
         >

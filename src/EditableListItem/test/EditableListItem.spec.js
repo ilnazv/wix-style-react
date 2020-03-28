@@ -93,5 +93,18 @@ describe('EditableListItem', () => {
         approveButtonTooltip,
       );
     });
+
+    it('should not show cancel button tooltip if tooltip prop is not provided', async () => {
+      const { driver } = render(<EditableListItem />);
+      await driver.hoverCancelButton();
+      expect(await driver.isCancelButtonTooltipExists()).toBe(false);
+    });
+
+    it('should not show approve button tooltip if tooltip prop is not provided', async () => {
+      const { driver } = render(<EditableListItem />);
+      await driver.enterText('some text');
+      await driver.hoverApproveButton();
+      expect(await driver.isApproveButtonTooltipExists()).toBe(false);
+    });
   });
 });
