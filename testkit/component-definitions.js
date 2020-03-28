@@ -65,6 +65,13 @@ export default {
     },
   },
 
+  EditableListItem: {
+    props: {
+      onApprove: () => null,
+      onCancel: () => null,
+    },
+  },
+
   FloatingHelper: {
     props: {
       content: <FloatingHelper.Content title="title" body="body" />,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import EditableListItem from '..';
+import EditableListItem, { EditableListItemSize } from '..';
 import { editableListItemTestkitFactory } from '../../../testkit';
 import { editableListItemTestkitFactory as editableListItemEnzymeTestkitFactory } from '../../../testkit/enzyme';
 import { editableListItemTestkitFactory as editableListItemPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
@@ -7,7 +7,7 @@ import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
 
 function editableListItemWithMandatoryProps() {
-  return <EditableListItem />;
+  return <EditableListItem onApprove={() => null} onCancel={() => null} />;
 }
 
 function editableListItemWithAllProps() {
@@ -15,7 +15,14 @@ function editableListItemWithAllProps() {
     <EditableListItem
       dataHook="dataHook"
       className="className"
-      buttonText="buttonText"
+      onCancel={() => null}
+      onApprove={() => null}
+      approveButtonTooltip={'approve'}
+      cancelButtonTooltip={'cancel'}
+      placeholder={'placeholder'}
+      size={EditableListItemSize.SMALL}
+      status={'error'}
+      statusMessage={'message'}
     />
   );
 }

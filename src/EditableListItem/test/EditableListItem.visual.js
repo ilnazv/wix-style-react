@@ -3,17 +3,38 @@ import { storiesOf } from '@storybook/react';
 import EditableListItem from '../EditableListItem';
 
 const commonProps = {
-  // use for repeated props across the tests (e.g. {buttonText: 'example'})
+  onApprove: () => null,
+  onCancel: () => null,
 };
 
 const tests = [
   {
-    describe: 'sanity', // prop name (e.g. size)
+    describe: 'sanity',
     its: [
       {
-        it: 'default', // prop variation (e.g. small)
+        it: 'default',
+      },
+    ],
+  },
+  {
+    describe: 'status',
+    its: [
+      {
+        it: 'error',
         props: {
-          // the simulation (e.g. {size: "small"})
+          status: 'error',
+        },
+      },
+      {
+        it: 'warning',
+        props: {
+          status: 'warning',
+        },
+      },
+      {
+        it: 'loading',
+        props: {
+          status: 'loading',
         },
       },
     ],
