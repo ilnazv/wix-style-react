@@ -431,6 +431,10 @@ export {default as TextLink} from './TextLink';
 export { default as AnnouncementModalLayout } from './AnnouncementModalLayout';
 
 export { default as Pagination } from './Pagination';
+
+export { default as EditableListItem } from './EditableListItem';
+export * from './EditableListItem'
+
 export * from './Pagination'
 
 export * from './AnnouncementModalLayout'

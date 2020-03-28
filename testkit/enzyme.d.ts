@@ -278,6 +278,8 @@ import {AnnouncementModalLayoutUniDriver} from '../src/AnnouncementModalLayout/A
 export const announcementModalLayoutTestkitFactory: EnzymeUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
 import {PaginationUniDriver} from '../src/Pagination/Pagination.uni.driver';
 export const paginationTestkitFactory: EnzymeUniTestkitFactory<PaginationUniDriver>;
+import {EditableListItemUniDriver} from '../src/EditableListItem/EditableListItem.uni.driver';
+export const editableListItemTestkitFactory: EnzymeUniTestkitFactory<EditableListItemUniDriver>;
 import {HeaderDriver} from '../src/Card/Header/Header.driver';
 export const headerTestkitFactory: EnzymeTestkitFactory<HeaderDriver>;
 import {EditableRowDriver} from '../src/EditableSelector/EditableRow/EditableRow.driver';

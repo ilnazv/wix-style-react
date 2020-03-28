@@ -173,6 +173,7 @@ export const statusIndicatorTestkitFactory = protractorUniTestkitFactoryCreator(
 export const messageModalLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/MessageModalLayout/MessageModalLayout.uni.driver')));
 export const announcementModalLayoutTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/AnnouncementModalLayout/AnnouncementModalLayout.uni.driver')));
 export const paginationTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/Pagination/Pagination.uni.driver')));
+export const editableListItemTestkitFactory = protractorUniTestkitFactoryCreator(load(require('../src/EditableListItem/EditableListItem.uni.driver')));
 export const drillViewTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/DrillView/DrillView.protractor.driver')));
 export const cardHeaderTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Card/Header/Header.uni.driver')));
 export const sideMenuTestkitFactory = protractorTestkitFactoryCreator(load(require('../src/Deprecated/SideMenu/core/SideMenu.uni.driver')));

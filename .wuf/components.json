@@ -475,5 +475,8 @@
   },
   "Pagination": {
     "path": "src/Pagination"
+  },
+  "EditableListItem": {
+    "path": "src/EditableListItem"
   }
 }

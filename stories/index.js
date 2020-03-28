@@ -83,6 +83,7 @@ require('../src/LinearProgressBar/docs/index.story');
 require('../src/ListItemAction/docs/index.story');
 require('../src/ListItemSection/docs/index.story');
 require('../src/ListItemSelect/docs/index.story');
+require('../src/EditableListItem/docs/index.story');
 require('../src/Loader/docs/index.story');
 require('../src/MediaOverlay/docs/index.story');
 require('../src/MessageBox/FunctionalLayout/docs/index.story');

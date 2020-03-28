@@ -277,6 +277,8 @@ import { AnnouncementModalLayoutUniDriver } from '../src/AnnouncementModalLayout
 export const announcementModalLayoutTestkitFactory: VanillaUniTestkitFactory<AnnouncementModalLayoutUniDriver>;
 import { PaginationUniDriver } from '../src/Pagination/Pagination.uni.driver';
 export const paginationTestkitFactory: VanillaUniTestkitFactory<PaginationUniDriver>;
+import { EditableListItemUniDriver } from '../src/EditableListItem/EditableListItem.uni.driver';
+export const editableListItemTestkitFactory: VanillaUniTestkitFactory<EditableListItemUniDriver>;
 import { HeaderDriver } from '../src/Card/Header/Header.driver';
 export const headerTestkitFactory: VanillaTestkitFactory<HeaderDriver>;
 import { EditableRowDriver } from '../src/EditableSelector/EditableRow/EditableRow.driver';
