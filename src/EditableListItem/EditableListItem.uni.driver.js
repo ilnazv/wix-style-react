@@ -19,5 +19,7 @@ export const editableListItemDriverFactory = (base, body) => {
     inputExists: () => inputDriver.exists(),
     approveButtonExists: () => approveButtonDriver.exists(),
     cancelButtonExists: () => cancelButtonDriver.exists(),
+    inputPlaceholder: () => inputDriver.getPlaceholder(),
+    isApproveButtonDisabled: () => approveButtonDriver.isButtonDisabled(),
   };
 };
