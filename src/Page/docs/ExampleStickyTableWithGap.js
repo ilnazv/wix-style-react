@@ -57,7 +57,6 @@ class ProductTable extends React.Component {
     const tableData = this.getFilteredData();
     return (
       <Table
-        withWrapper
         dataHook="story-table-example"
         data={tableData}
         itemsPerPage={20}
