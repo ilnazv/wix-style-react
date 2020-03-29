@@ -44,17 +44,14 @@ class Example extends React.Component {
 }
 
 class ProductTable extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      data: allData,
-      collectionId: 0,
-      filterId: 0,
-      searchTerm: '',
-      inStock: false,
-    };
-  }
+  state = {
+    data: allData,
+    collectionId: 0,
+    filterId: 0,
+    searchTerm: '',
+    inStock: false,
+  };
 
   render() {
     const tableData = this.getFilteredData();
@@ -119,11 +116,12 @@ class ProductTable extends React.Component {
         width: '40%',
         render: rowData => (
           <TableActionCell
+            upgrade
             dataHook="action-cell-component-secondary"
             primaryAction={{
               text: 'Edit',
               theme: 'fullblue',
-              onActionTrigger: () => primaryAction(rowData),
+              onClick: () => window.alert(`Row Data: ${JSON.stringify(rowData)}`),
             }}
             secondaryActions={[
               {
@@ -153,15 +151,6 @@ class ProductTable extends React.Component {
         ),
       },
     ];
-  }
-
-  clearSearch() {
-    this.setState({
-      collectionId: 0,
-      filterId: 0,
-      searchTerm: '',
-      inStock: false,
-    });
   }
 
   renderMainToolbar() {
@@ -241,19 +230,21 @@ class ProductTable extends React.Component {
   }
 
   getFilteredData() {
-    let data = this.state.data;
-    if (this.state.collectionId > 0) {
-      data = data.filter(row => row.collectionId === this.state.collectionId);
+    const { collectionId, filterId, searchTerm, inStock } = this.state;
+    let { data } = this.state;
+
+    if (collectionId > 0) {
+      data = data.filter(row => row.collectionId === collectionId);
     }
-    if (this.state.filterId > 0) {
-      data = data.filter(row => row.filterId === this.state.filterId);
+    if (filterId > 0) {
+      data = data.filter(row => row.filterId === filterId);
     }
-    if (this.state.inStock) {
+    if (inStock) {
       data = data.filter(row => row.inventory === 'In stock');
     }
-    if (this.state.searchTerm !== '') {
+    if (searchTerm !== '') {
       data = data.filter(row =>
-        row.name.toUpperCase().includes(this.state.searchTerm.toUpperCase()),
+        row.name.toUpperCase().includes(searchTerm.toUpperCase()),
       );
     }
     return data;
