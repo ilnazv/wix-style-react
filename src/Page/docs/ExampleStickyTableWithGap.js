@@ -210,24 +210,18 @@ class ProductTable extends React.Component {
             </TableToolbar.Item>
           </TableToolbar.ItemGroup>
           <TableToolbar.ItemGroup position="end">
-            <TableToolbar.Item>{this.renderSearch(false)}</TableToolbar.Item>
+            <TableToolbar.Item>
+              <Search
+                onChange={e => this.setState({ searchTerm: e.target.value })}
+                value={this.state.searchTerm}
+              />
+            </TableToolbar.Item>
           </TableToolbar.ItemGroup>
         </TableToolbar>
       </Card>
     );
   }
 
-  renderSearch(expandable) {
-    return (
-      <Search
-        expandable={expandable}
-        onChange={e => {
-          this.setState({ searchTerm: e.target.value });
-        }}
-        value={this.state.searchTerm}
-      />
-    );
-  }
 
   getFilteredData() {
     const { collectionId, filterId, searchTerm, inStock } = this.state;
