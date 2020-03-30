@@ -39,7 +39,7 @@ class DesignedSidebar extends React.Component {
 
   render() {
     return (
-      <Box height="800px">
+      <Box height="500px">
         <Sidebar selectedKey={'dashboard'}>
           <Sidebar.PersistentHeader>
             <Box direction="vertical">
@@ -123,7 +123,7 @@ class DesignedSidebar extends React.Component {
 `;
 
 export const accountManagerSidebar = `
-<Box height="800px">
+<Box height="500px">
 <Sidebar skin="light">
   <Sidebar.PersistentHeader>
     <SidebarHeader>

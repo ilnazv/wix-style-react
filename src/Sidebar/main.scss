@@ -8,6 +8,8 @@ $darkScrollbarThumbColor: $D80-42;
 $lightScrollbarThumbHoverColor: $D10-66;
 $lightScrollbarThumbColor: $D10-42;
 
+$gradientHeight: 36px;
+
 @keyframes inFromLeft {
   from {
     left: -$sidebarWidth;
@@ -151,5 +153,18 @@ $lightScrollbarThumbColor: $D10-42;
 
   [dir='rtl'] & {
     animation-name: outToRight;
+  }
+}
+
+.gradient {
+  height: $gradientHeight;
+  min-height: $gradientHeight;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  background-color: red;
+
+  &.light {
+    background-color: green;
   }
 }
