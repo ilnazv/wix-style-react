@@ -97,7 +97,10 @@ PageTestStories.add('12. PopoverMenus', () => (
               <PopoverMenu
                 dataHook="popovermenu-in-content"
                 triggerElement={
-                  <IconButton skin="inverted">
+                  <IconButton
+                    skin="inverted"
+                    dataHook="popovermenu-in-content-button"
+                  >
                     <More />
                   </IconButton>
                 }
