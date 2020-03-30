@@ -204,7 +204,7 @@ describe('Input', () => {
         { status: 'error', statusMessage: 'Error Message' },
         { status: 'warning', statusMessage: 'Warning Message' },
         { status: 'loading', statusMessage: 'Loading Message' },
-      ])('should display status when %p', async test => {
+      ])('should display status with message when %p', async test => {
         const { driver } = render(<Input {...test} />);
 
         expect(await driver.hasStatus(test.status)).toBe(true);

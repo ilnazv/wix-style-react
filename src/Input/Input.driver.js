@@ -117,15 +117,17 @@ const inputDriverFactory = ({ element, eventTrigger }) => {
       let tooltipText = null;
       const tooltipDriver = tooltipDriverFactory({
         element: element.querySelector(
-          `[data-hook='status-indicator-tooltip']`,
+          '[data-hook="status-indicator-tooltip"]',
         ),
         eventTrigger,
       });
 
-      tooltipDriver.mouseEnter();
-      const contentElement = tooltipDriver.getContentElement();
-      if (contentElement) {
-        tooltipText = contentElement.textContent;
+      if (tooltipDriver.exists()) {
+        tooltipDriver.mouseEnter();
+        const contentElement = tooltipDriver.getContentElement();
+        if (contentElement) {
+          tooltipText = contentElement.textContent;
+        }
       }
 
       return tooltipText;

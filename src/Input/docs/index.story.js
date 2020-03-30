@@ -25,10 +25,7 @@ export default {
   component: Input,
   componentPath: '../Input.js',
 
-  componentProps: {
-    theme: 'normal',
-    status: undefined,
-  },
+  componentProps: {},
 
   exampleProps: {
     status: [

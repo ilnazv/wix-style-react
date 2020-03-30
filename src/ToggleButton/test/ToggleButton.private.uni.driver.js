@@ -1,5 +1,5 @@
 import { toggleButtonDriverFactory } from '../ToggleButton.uni.driver';
-import { tooltipDriverFactory } from '../../Tooltip/TooltipNext/Tooltip.uni.driver';
+import { tooltipDriverFactory } from '../../Tooltip/Tooltip.uni.driver';
 
 export const toggleButtonPrivateDriverFactory = (base, body) => {
   const tooltipTestkit = tooltipDriverFactory(

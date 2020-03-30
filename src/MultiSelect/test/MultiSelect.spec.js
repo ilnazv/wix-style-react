@@ -159,21 +159,28 @@ describe('MultiSelect', () => {
     });
 
     describe('with status', () => {
-      [
+      it.each([
+        { status: 'error' },
+        { status: 'warning' },
+        { status: 'loading' },
+      ])('should display status when %p', async test => {
+        const { inputDriver } = createDriver(
+          <MultiSelect {...test} options={options} />,
+        );
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBeNull();
+      });
+
+      it.each([
         { status: 'error', statusMessage: 'Error Message' },
         { status: 'warning', statusMessage: 'Warning Message' },
         { status: 'loading', statusMessage: 'Loading Message' },
-      ].forEach(test => {
-        it(`should display a status icon when status="${test.status}"`, async () => {
-          const { inputDriver } = createDriver(
-            <MultiSelect {...test} options={options} />,
-          );
-
-          expect(await inputDriver.hasStatus()).toBe(true);
-          expect(await inputDriver.getStatus()).toBe(test.status);
-          expect(await inputDriver.hasStatusMessage()).toBe(true);
-          expect(await inputDriver.getStatusMessage()).toBe(test.statusMessage);
-        });
+      ])('should display status with message when %p', async test => {
+        const { inputDriver } = createDriver(
+          <MultiSelect {...test} options={options} />,
+        );
+        expect(await inputDriver.hasStatus(test.status)).toBe(true);
+        expect(await inputDriver.getStatusMessage()).toBe(test.statusMessage);
       });
     });
 

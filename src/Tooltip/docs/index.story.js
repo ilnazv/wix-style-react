@@ -75,7 +75,7 @@ export default {
     header({
       issueUrl: 'https://github.com/wix/wix-style-react/issues/new',
       sourceUrl:
-        'https://github.com/wix/wix-style-react/tree/master/src/TooltipNext/',
+        'https://github.com/wix/wix-style-react/tree/master/src/Tooltip/',
       component: (
         <Box>
           <Tooltip appendTo="window" content="Hello!">
