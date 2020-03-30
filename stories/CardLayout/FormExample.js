@@ -12,7 +12,7 @@ import InputArea from 'wix-style-react/InputArea';
 import Box from 'wix-style-react/Box';
 import Checkbox from 'wix-style-react/Checkbox';
 
-class FormExample extends React.Component {
+class FormExamples extends React.Component {
   render() {
     return (
       <Container>
