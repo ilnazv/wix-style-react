@@ -7,7 +7,7 @@ const tests = [
     describe: 'sanity', // prop name (e.g. size)
     its: [
       {
-        it: 'default', //prop variation (e.g. small)
+        it: 'default', // prop variation (e.g. small)
         props: {},
       },
     ],

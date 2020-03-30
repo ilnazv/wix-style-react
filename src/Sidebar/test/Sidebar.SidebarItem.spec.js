@@ -155,7 +155,7 @@ describe('Sidebar', () => {
       subItemEl = sidebar.find(`[data-hook="simple4"]`);
       expect(subItemEl.text()).toEqual('000');
 
-      //wrapper = mount(<App/>)
+      // wrapper = mount(<App/>)
       // import {SidebarTestkit, SidebarItemTestkit} from 'wsr/testkit'
       // const sidebarDriver = SidebarTestkit({wrapper, dataHook: 'my-sidebar'})
       // const sidebarItemDriver = SidebarTestkit({wrapper, dataHook: 'my-sidebar-item-1'})

@@ -18,7 +18,7 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//4. Selection
+// 4. Selection
 import Dropdown from 'wix-style-react/Dropdown';
 import MultiSelectCheckbox from 'wix-style-react/MultiSelectCheckbox';
 import Checkbox from 'wix-style-react/Checkbox';
@@ -29,7 +29,7 @@ import Thumbnail from 'wix-style-react/Thumbnail';
 import Slider from 'wix-style-react/Slider';
 import FormField from 'wix-style-react/FormField';
 
-//Assets
+// Assets
 import LockLocked from 'wix-ui-icons-common/LockLocked';
 import LockUnlocked from 'wix-ui-icons-common/LockUnlocked';
 import { Layout, Cell } from 'wix-style-react/Layout';

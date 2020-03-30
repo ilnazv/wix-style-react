@@ -19,7 +19,7 @@ import {
 
 import times from '../../../../src/utils/operators/times';
 
-//10. Picker
+// 10. Picker
 import EditableSelector from 'wix-style-react/EditableSelector';
 import ModalSelectorLayout from 'wix-style-react/ModalSelectorLayout';
 import ColorPicker from 'wix-style-react/ColorPicker';
@@ -28,7 +28,7 @@ import CalendarPanel from 'wix-style-react/CalendarPanel';
 import CalendarPanelFooter from 'wix-style-react/CalendarPanelFooter';
 import Swatches from 'wix-style-react/Swatches';
 
-//Assets
+// Assets
 import { Layout } from 'wix-style-react/Layout';
 import singleComponentSizes from '../sharedComponents/constants';
 

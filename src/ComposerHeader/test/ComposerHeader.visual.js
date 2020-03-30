@@ -18,7 +18,7 @@ const generateMainActions = props => (
 );
 
 const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
+  // use for repeated props across the tests (e.g. {buttonText: 'example'})
 };
 
 const tests = [

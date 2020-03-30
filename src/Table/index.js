@@ -1,4 +1,4 @@
-/*eslint no-duplicate-imports: 0*/
+/* eslint no-duplicate-imports: 0*/
 import { Table } from './Table';
 
 export { Table } from './Table';

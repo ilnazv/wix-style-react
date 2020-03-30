@@ -87,7 +87,7 @@ describe('EditableTitle', () => {
 
       await driver.clickHeading();
       await driver.getInput().enterText(anotherTitle);
-      await driver.getInput().keyDown({ keyCode: 13 /*Enter*/ });
+      await driver.getInput().keyDown({ keyCode: 13 /* Enter*/ });
 
       expect(onSubmit).toHaveBeenCalledTimes(1);
     });

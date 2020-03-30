@@ -4,7 +4,7 @@ import AutoCompleteWithLabel from '../AutoCompleteWithLabel';
 import { autoCompleteWithLabelTestkitFactory } from '../../../testkit';
 
 const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
+  // use for repeated props across the tests (e.g. {buttonText: 'example'})
   label: 'my-label',
   options: [],
 };

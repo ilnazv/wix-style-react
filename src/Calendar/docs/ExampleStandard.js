@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'wix-style-react/Calendar';
 import ToggleSwitch from 'wix-style-react/ToggleSwitch';
-	import Text from 'wix-style-react/Text';
+import Text from 'wix-style-react/Text';
 
 class ControlledCalendarExample extends React.Component {
   constructor(props) {

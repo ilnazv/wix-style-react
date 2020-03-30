@@ -8,7 +8,7 @@ const stringToColor = name => {
     return;
   }
   const hash = stringToNumber(name);
-  const index = hash % avatarColorList.length; //this sets an index between 0 and array.length.
+  const index = hash % avatarColorList.length; // this sets an index between 0 and array.length.
   return avatarColorList[index];
 };
 

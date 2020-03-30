@@ -4,7 +4,7 @@ import FillButton from '../FillButton';
 import Box from '../../Box';
 
 const commonProps = {
-  //use for repeated props across the tests (e.g. {buttonText: 'example'})
+  // use for repeated props across the tests (e.g. {buttonText: 'example'})
 };
 
 const tests = [
@@ -12,7 +12,7 @@ const tests = [
     describe: 'sanity',
     its: [
       {
-        it: 'default', //prop variation (e.g. small)
+        it: 'default', // prop variation (e.g. small)
         props: {
           // the simulation (e.g. {size: "small"})
         },
@@ -23,7 +23,7 @@ const tests = [
     describe: 'states',
     its: [
       {
-        it: 'disabled', //prop variation (e.g. small)
+        it: 'disabled', // prop variation (e.g. small)
         props: {
           disabled: true,
         },
@@ -34,13 +34,13 @@ const tests = [
     describe: 'fill',
     its: [
       {
-        it: 'gradient (contrast dark)', //prop variation (e.g. small)
+        it: 'gradient (contrast dark)', // prop variation (e.g. small)
         props: {
           fill: 'linear-gradient(#DBE6B3, #D7E6B3)',
         },
       },
       {
-        it: 'gradient (contrast white)', //prop variation (e.g. small)
+        it: 'gradient (contrast white)', // prop variation (e.g. small)
         props: {
           fill: 'linear-gradient(#4D4A19, #D7E6B3)',
         },

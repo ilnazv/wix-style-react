@@ -1,4 +1,4 @@
-/*eslint camelcase: off*/
+/* eslint camelcase: off*/
 import {
   google2address,
   trySetStreetNumberIfNotReceived,

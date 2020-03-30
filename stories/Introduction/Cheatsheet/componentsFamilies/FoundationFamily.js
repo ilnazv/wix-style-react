@@ -18,11 +18,11 @@ import {
   symbolsGroup,
 } from '../../../symbolsComponentsMapping/symbols';
 
-//1. Foundation
+// 1. Foundation
 import Text from 'wix-style-react/Text';
 import Heading from 'wix-style-react/Heading';
 
-//Icons
+// Icons
 import Edit from 'wix-ui-icons-common/Edit';
 import Delete from 'wix-ui-icons-common/Delete';
 import Confirm from 'wix-ui-icons-common/Confirm';
@@ -36,7 +36,7 @@ import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import HeartFilled from 'wix-ui-icons-common/HeartFilled';
 import FlagFilled from 'wix-ui-icons-common/FlagFilled';
 
-//Assets
+// Assets
 import { Layout, Cell } from 'wix-style-react/Layout';
 import Box from 'wix-style-react/Box';
 import { capitalize } from '../../../../src/Typography/docs/utils.js';

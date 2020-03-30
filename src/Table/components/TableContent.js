@@ -9,7 +9,7 @@ import styles from '../Table.st.css';
 import { BulkSelectionConsumer } from '../BulkSelection';
 
 export const TableContent = ({ titleBarVisible, dataHook, ...rest }) => {
-  //TODO: figure out if we need to put result of createColumns() on state, in order to avoid
+  // TODO: figure out if we need to put result of createColumns() on state, in order to avoid
   // redundant renders.
   return (
     <TableContext.Consumer>

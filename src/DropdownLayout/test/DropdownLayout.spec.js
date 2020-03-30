@@ -578,7 +578,7 @@ describe('DropdownLayout', () => {
     describe('controlled and uncontrolled logic', () => {
       describe('controlled', () => {
         it('should work as a controlled component when selectedId an onSelect are given', async () => {
-          //give selectedId and onSelect
+          // give selectedId and onSelect
           const onSelect = jest.fn();
           const driver = createDriver(
             <DropdownLayout
@@ -588,33 +588,33 @@ describe('DropdownLayout', () => {
               selectedId={0}
             />,
           );
-          //select item
+          // select item
           await driver.clickAtOption(1);
-          //expect internal state to not change
+          // expect internal state to not change
           expect(await driver.isOptionSelected(0)).toBe(true);
         });
       });
 
       describe('uncontrolled', () => {
         it('should work as an uncontrolled component when only selectedId is supplied', async () => {
-          //give selectedId
+          // give selectedId
           const driver = createDriver(
             <DropdownLayout visible options={options} selectedId={0} />,
           );
-          //select item
+          // select item
           await driver.clickAtOption(1);
-          //expect internal state to change
+          // expect internal state to change
           expect(await driver.isOptionSelected(1)).toBe(true);
         });
 
         it('should work as an uncontrolled component when only onSelect is supplied', async () => {
-          //give onSelect
+          // give onSelect
           const driver = createDriver(
             <DropdownLayout visible options={options} onSelect={jest.fn()} />,
           );
-          //select item
+          // select item
           await driver.clickAtOption(1);
-          //expect internal state to change
+          // expect internal state to change
           expect(await driver.isOptionSelected(1)).toBe(true);
         });
       });

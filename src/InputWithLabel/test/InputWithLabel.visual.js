@@ -120,7 +120,7 @@ const interactiveTests = [
   {
     describe: 'interactive',
     its: [
-      //TODO: Make this test work
+      // TODO: Make this test work
       // {
       //   it: 'hover',
       //   props: {
@@ -141,7 +141,7 @@ const interactiveTests = [
           await driver.clickInput();
         },
       },
-      //TODO: Make this test work
+      // TODO: Make this test work
       // {
       //   it: 'with text',
       //   props: {

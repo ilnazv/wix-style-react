@@ -29,13 +29,13 @@ class DataTableExample extends React.Component {
           dataHook="story-data-table-example"
           data={generateData()}
           onRowClick={(row, rowNum) => {
-            /*eslint-disable no-alert*/
+            /* eslint-disable no-alert*/
             window.alert(
               `You clicked "${row.firstName} ${
                 row.lastName
               }", row number ${rowNum + 1}`,
             );
-            /*eslint-enable no-alert*/
+            /* eslint-enable no-alert*/
           }}
           dynamicRowClass={row =>
             row.firstName === baseData[1].firstName ? s.highlightRow : null

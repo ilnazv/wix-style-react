@@ -61,7 +61,7 @@ const insertEntity = (editorState, { text, value }) => {
   );
 };
 const _escapeRegExp = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-//** Get variable with given prefix and suffix in the given string */
+/** Get variable with given prefix and suffix in the given string */
 const getMatchesInString = (str, prefix, suffix) => {
   const escPrefix = _escapeRegExp(prefix);
   const escSuffix = _escapeRegExp(suffix);

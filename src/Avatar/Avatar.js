@@ -62,7 +62,7 @@ class Avatar extends React.PureComponent {
     } = this.props;
     const { fadeIndication, showIndication } = this.state;
 
-    const calculatedColor = color || stringToColor(text || name); //if color is provided as a prop use it, otherwise, generate a color based on the text
+    const calculatedColor = color || stringToColor(text || name); // if color is provided as a prop use it, otherwise, generate a color based on the text
     const sizeNumber = getSizeNumber(size);
     const renderOnHover = !showIndicationOnHover || showIndication;
     const renderIndication =

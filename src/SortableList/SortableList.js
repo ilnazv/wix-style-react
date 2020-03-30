@@ -207,7 +207,7 @@ class SortableList extends WixComponent {
   }) => {
     const index = this.getInsertionIndex(addedIndex, payload);
     this.reSetAnimationState();
-    this.changeItemPlace(payload, index); //put element at right place after drop
+    this.changeItemPlace(payload, index); // put element at right place after drop
     this.props.onDrop({
       payload,
       addedIndex: index,

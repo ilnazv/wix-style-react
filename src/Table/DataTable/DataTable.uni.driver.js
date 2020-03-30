@@ -26,7 +26,6 @@ export const dataTableUniDriverFactory = base => {
     getRow(rowIndex)
       .$$('td')
       .get(cellIndex);
-  //here
   const getRowDetails = index =>
     base.$(`tbody tr td[data-hook="${index}_details"]`);
   const getHeaderCell = index =>

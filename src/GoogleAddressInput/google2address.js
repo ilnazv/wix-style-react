@@ -1,4 +1,4 @@
-/*eslint camelcase: off*/
+/* eslint camelcase: off*/
 import isUndefined from 'lodash/isUndefined';
 
 export const includes = (arr, value) => {

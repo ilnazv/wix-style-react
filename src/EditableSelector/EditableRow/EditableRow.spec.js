@@ -52,7 +52,7 @@ describe('EditableRow', () => {
       const { driver } = render(<EditableRow onApprove={onApprove} />);
       const text = 'new option';
       await driver.setText(text);
-      await driver.keyDown(13); //enter
+      await driver.keyDown(13); // enter
       expect(onApprove).toHaveBeenCalled();
       expect(onApprove.mock.calls[0][0]).toBe(text);
     });
@@ -67,7 +67,7 @@ describe('EditableRow', () => {
     it('should trigger onCancel callback when escape key is pressed', async () => {
       const onCancel = jest.fn();
       const { driver } = render(<EditableRow onCancel={onCancel} />);
-      await driver.keyDown(27); //esc
+      await driver.keyDown(27); // esc
       expect(onCancel).toHaveBeenCalled();
     });
   }
