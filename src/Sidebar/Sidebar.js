@@ -49,7 +49,7 @@ class Sidebar extends Component {
   };
 
   itemKey2Children = {};
-  itemKey2ParenttKey = {};
+  itemKey2ParentKey = {};
 
   state = {
     persistentTopChildren: [],
@@ -63,14 +63,14 @@ class Sidebar extends Component {
   };
 
   _navigateTo = itemKey => {
-    if (this.itemKey2ParenttKey[itemKey]) {
-      if (this.itemKey2ParenttKey[itemKey] !== this.state.lastSelectedKey) {
+    if (this.itemKey2ParentKey[itemKey]) {
+      if (this.itemKey2ParentKey[itemKey] !== this.state.lastSelectedKey) {
         this.setState({
           drivenInChildren: this.itemKey2Children[
-            this.itemKey2ParenttKey[itemKey]
+            this.itemKey2ParentKey[itemKey]
           ].children,
           selectedKey: itemKey,
-          lastSelectedKey: this.itemKey2ParenttKey[itemKey],
+          lastSelectedKey: this.itemKey2ParentKey[itemKey],
         });
       } else {
         this.setState({ selectedKey: itemKey });
@@ -142,7 +142,7 @@ class Sidebar extends Component {
         if (child.props.innerMenu) {
           child.props.innerMenu.forEach(innerChild => {
             if (innerChild.type === SidebarItem) {
-              this.itemKey2ParenttKey[innerChild.props.itemKey] =
+              this.itemKey2ParentKey[innerChild.props.itemKey] =
                 child.props.itemKey;
             }
           });
@@ -178,7 +178,7 @@ class Sidebar extends Component {
       selectedKey: props.selectedKey,
     };
 
-    const selectedItemParentKey = this.itemKey2ParenttKey[props.selectedKey];
+    const selectedItemParentKey = this.itemKey2ParentKey[props.selectedKey];
     if (selectedItemParentKey) {
       this.setState({
         ...newState,
