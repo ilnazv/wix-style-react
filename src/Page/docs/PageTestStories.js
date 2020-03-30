@@ -16,7 +16,7 @@ import classNames from 'classnames';
 import { header, tail, fixedContent, content } from './PageChildren';
 import { storySettings } from './storySettings';
 import { LongTextContent } from './SomeContentComponent';
-import IconButton from 'wix-style-react/*';
+import IconButton from 'wix-style-react/IconButton';
 import More from 'wix-ui-icons-common/More';
 
 const PageContainer = props => {
